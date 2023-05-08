@@ -65,16 +65,16 @@
 <div class="breadcrumb-header">
 
 
-<h1 class="font-weight-bold mb-3">Quotation Form <i class="feather icon-box hvr-pulse"></i></h1>
-<span style="opacity:0.5;">Add your quotation form, it will be listed in the quotation list </div>
+<h1 class="font-weight-bold mb-3">Task Form <i class="feather icon-box hvr-pulse"></i></h1>
+<span style="opacity:0.5;">Add your task form, it will be listed in the task list </div>
 <div class="page-header-breadcrumb">
 <ul class="breadcrumb-title">
 <li style="color: aliceblue;" class="breadcrumb-item">
 <a href="{% url 'dashboard' %}"> <i class="feather icon-home"data-toggle="tooltip" data-placement="top" title="Go to Homepage"></i> </a>
 </li>
-<div class="breadcrumb-item"><a href="">Manage Quotation</a>
+<div class="breadcrumb-item"><a href="">Manage Task</a>
 </div>
-<div class="breadcrumb-item"><a href="{% url 'quotation_list' %}">Quotation List</a>
+<div class="breadcrumb-item"><a href="{% url 'quotation_list' %}">Task List</a>
 </div>
 </ul>
 </div>
@@ -118,46 +118,45 @@ Airport of Origin <i class="fa fa-plane" aria-hidden="true"></i>{% render_field 
 </div>
 
 </div>
-<br />
-<div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Airport of Destination">
-    Airport Destination <i class="fa fa-plane" aria-hidden="true"></i> {% render_field form.airport_of_destination  class="form-control" placeholder="Enter airport of destination" style="height:37px"  %}
-</div>
 
-<div class="col" data-toggle="tooltip" data-placement="left" title="Enter No. of Pieces" style="margin-left:80px;">
-Pieces <i class="fa fa-list" aria-hidden="true"></i>{% render_field form.no_of_shipment class="form-control col-md-10" style="height:37px" type="number" placeholder="Enter number of pieces" %}
-</div>
+<!--<div class="form-row">-->
+<!--<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Airport of Destination">-->
+<!--    Airport Destination <i class="fa fa-plane" aria-hidden="true"></i> {% render_field form.airport_of_destination  class="form-control" placeholder="Enter airport of destination" style="height:37px"  %}-->
+<!--</div>-->
 
-</div>
+<!--<div class="col" data-toggle="tooltip" data-placement="left" title="Enter No. of Pieces" style="margin-left:80px;">-->
+<!--Pieces <i class="fa fa-list" aria-hidden="true"></i>{% render_field form.no_of_shipment class="form-control col-md-10" style="height:37px" type="number" placeholder="Enter number of pieces" %}-->
+<!--</div>-->
 
-
-
-<br />
-
-<div class="form-row">
-    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Weight in KG">
-        Weight of Shipment <i class="fa fa-weight" aria-hidden="true"></i> {% render_field form.weights_of_shipment  class="form-control" placeholder="Enter Weight of Shipment" type="number" style="height:37px"  %}
-    </div>
-    
-    <div class="col" data-toggle="tooltip" data-placement="left" title="Enter AMS Fee" style="margin-left:80px;">
-     AMS Fee <i class="fa fa-envelope" aria-hidden="true"></i>{% render_field form.ams_fee class="form-control col-md-10" style="height:37px" placeholder="Enter AMS fee" %}
-    </div>
-    
-    </div>
+<!--</div>-->
 
 
 
-<br />
-<div class="form-row">
-    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Quotation Routine">
-        Quotation Routine <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.routine  class="form-control" placeholder="Enter Quotation Routine" style="height:37px"  %}
-    </div>
-    
-    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Payments Terms" style="margin-left:80px;">
-     Payment Terms <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.payment_terms class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}
-    </div>
-    
-    </div>
+
+<!--<div class="form-row">-->
+<!--    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Weight in KG">-->
+<!--        Weight of Shipment <i class="fa fa-weight" aria-hidden="true"></i> {% render_field form.weights_of_shipment  class="form-control" placeholder="Enter Weight of Shipment" type="number" style="height:37px"  %}-->
+<!--    </div>-->
+<!--    -->
+<!--    <div class="col" data-toggle="tooltip" data-placement="left" title="Enter AMS Fee" style="margin-left:80px;">-->
+<!--     AMS Fee <i class="fa fa-envelope" aria-hidden="true"></i>{% render_field form.ams_fee class="form-control col-md-10" style="height:37px" placeholder="Enter AMS fee" %}-->
+<!--    </div>-->
+
+<!--    </div>-->
+
+
+
+<!--<br />-->
+<!--<div class="form-row">-->
+<!--    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Quotation Routine">-->
+<!--        Quotation Routine <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.routine  class="form-control" placeholder="Enter Quotation Routine" style="height:37px"  %}-->
+<!--    </div>-->
+<!--    -->
+<!--    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Payments Terms" style="margin-left:80px;">-->
+<!--     Payment Terms <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.payment_terms class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}-->
+<!--    </div>-->
+<!--    -->
+<!--    </div>-->
 
 
 
@@ -166,11 +165,11 @@ Pieces <i class="fa fa-list" aria-hidden="true"></i>{% render_field form.no_of_s
     <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Time">
        Time <i class="fa fa-clock" aria-hidden="true"></i> {% render_field form.time  class="form-control" type="time" style="height:37px"  %}
     </div>
-    
+
     <div class="col" data-toggle="tooltip" data-placement="left" title="Select Date" style="margin-left:80px;">
     Date <i class="fa fa-calendar" aria-hidden="true"></i>{% render_field form.date class="form-control col-md-10" type="date" style="height:37px" placeholder="Enter payment terms" %}
     </div>
-    
+
     </div>
 
 
@@ -179,16 +178,16 @@ Pieces <i class="fa fa-list" aria-hidden="true"></i>{% render_field form.no_of_s
 
 <br />
 
-<div class="form-row">
-    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Charges">
-        Charges <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.charges  class="form-control" placeholder="Enter Charges" type="number" style="height:37px"  %}
-    </div>
-    
-    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Custom Clearance" style="margin-left:80px;">
-     Customer Clearance <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.custom_clearance class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}
-    </div>
-    
-</div>
+<!--<div class="form-row">-->
+<!--    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Charges">-->
+<!--        Charges <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.charges  class="form-control" placeholder="Enter Charges" type="number" style="height:37px"  %}-->
+<!--    </div>-->
+
+<!--    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Custom Clearance" style="margin-left:80px;">-->
+<!--     Customer Clearance <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.custom_clearance class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}-->
+<!--    </div>-->
+
+<!--</div>-->
 
 <br>
 <div class="form-row">
