@@ -51,8 +51,8 @@
 <div class="card" data-aos="fade-up" data-aos-duration="1000">
 <div class="card-block caption-breadcrumb">
 <div class="breadcrumb-header">
-<h5 class="font-weight-bold mb-3">Quotation Type List <i class="fas fa-list"></i></h5>
-<span style="opacity:0.5">Every quotation added in the form gets listed down below</span>
+<h5 class="font-weight-bold mb-3">Task Type List <i class="fas fa-list"></i></h5>
+<span style="opacity:0.5">Every Task added in the form gets listed down below</span>
 </div>
 
 <div class="page-header-breadcrumb">
@@ -60,9 +60,9 @@
 <li class="breadcrumb-item">
 <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top" title="Go to Homepage"> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a href="">Manage Quotation Type</a>
+<li class="breadcrumb-item"><a href="">Manage Task Type</a>
 </li>
-<li class="breadcrumb-item"><a href="{% url 'quotation-create_type' %}">Add Quotation Type</a>
+<li class="breadcrumb-item"><a href="{% url 'quotation-create_type' %}">Add Task Type</a>
 </li>
 </ul>
 </div>
@@ -82,7 +82,7 @@
 <thead>
 <tr>
 <th scope="col"></th>
-<th scope="col">Quotation Name</th>
+<th scope="col">Task Name</th>
 
 <th scope="col">Edit</th>
 <th scope="col">Delete</th>
@@ -95,7 +95,7 @@
 
 <tr>
 {% for quotation_list in quotation_list %}
-<th>Quotations</th>
+<th>Task</th>
 <td>{{quotation_list.name}}</td>
 
 <td><a href="{% url 'update_quotation_type' quotation_list.id %}" class=" hvr-pulse" data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><i class="fas fa-edit"></i></a></td>

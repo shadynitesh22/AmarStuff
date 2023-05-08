@@ -55,9 +55,9 @@ class QuotationType(models.Model):
 
 class Quotation(models.Model):
     STATUS = (
-        ("Quotation Created", "Quotation Created"),
-        ("Quotation Email Sent", "Quotation Email Sent"),
-        ("Quotation Completed", "Quotation Completed"),
+        ("Task Created", "Task Created"),
+        ("Task Email Sent", "Task Email Sent"),
+        ("Task Completed", "Task Completed"),
     )
     AIRPORT_TRANSFER = "airport transfer"
     CUSTOM_CLEARANCE = "Custom clearance "
@@ -66,9 +66,9 @@ class Quotation(models.Model):
     AIR_FREIGHT = "Issuing of airway bill "
     DELIVERY_DESTINATION = "delivery at destination airport"
 
-    BY_AIR = "By air"
-    BY_LAND = "By land "
-    BY_SEA = "By sea"
+    BY_AIR = "Development"
+    BY_LAND = "QA"
+    BY_SEA = "Management"
 
     ITEM_TYPES = (
         (
@@ -93,7 +93,7 @@ class Quotation(models.Model):
     users = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
     mode_of_transport = models.CharField(choices=MODE_TYPES, max_length=100, null=True,
-                                         blank=True, db_index=True, default="By-Air")
+                                         blank=True, db_index=True, default="Development")
     quotation_type = models.ForeignKey(QuotationType, on_delete=models.CASCADE, null=True, blank=True)
     airport_of_origin = models.CharField(db_index=True, max_length=100, null=True, blank=True)
     airport_of_destination = models.CharField(max_length=100, null=True, blank=True, db_index=False)
@@ -111,7 +111,7 @@ class Quotation(models.Model):
     custom_clearance = models.FloatField(default=50.000, max_length=100, null=True, blank=True)
     charges = models.CharField(max_length=20, blank=True, null=True)
     customer = models.ForeignKey(Customers, on_delete=models.CASCADE, null=True, blank=True)
-    status = models.CharField(max_length=200, null=True, blank=True, choices=STATUS, default="Quotation Created")
+    status = models.CharField(max_length=200, null=True, blank=True, choices=STATUS, default="Task Created")
 
     def __str__(self):
         return f" {self.quotation_number}:{self.customer}  "
@@ -119,12 +119,12 @@ class Quotation(models.Model):
     def save(self, *args, **kwargs):
         if self.quotation_number is None:
             quotation_number = self.quotation_number
-            quotation_number = "Quota1"
+            quotation_number = "Task1"
             exist = Quotation.objects.filter(quotation_number=quotation_number).exists()
             count = 1
             while exist:
                 count += 1
-                quotation_number = "Quota" + str(count)
+                quotation_number = "Task" + str(count)
                 exist = Quotation.objects.filter(quotation_number=quotation_number).exists()
 
             self.quotation_number = quotation_number

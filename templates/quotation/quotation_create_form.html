@@ -93,14 +93,14 @@
 
 
 <div class="form-row"  >
-<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Customers">
-Customer <i data-toggle="modal" data-target="#exampleModalCenter1" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Customer"></i> {% render_field form.customer id="customer"  class="js-example-basic-single" %}
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Employees">
+Employees <i data-toggle="modal" data-target="#exampleModalCenter1" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Customer"></i> {% render_field form.customer id="customer"  class="js-example-basic-single" %}
 </div>
 
 
 
-<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Mode of Transport" style="margin-left:80px;">
-Mode of Transport <i class="fa fa-car" aria-hidden="true"></i> {% render_field form.mode_of_transport class="js-example-basic-single"  %}
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Task Type" style="margin-left:80px;">
+Type of task <i class="fa fa-car" aria-hidden="true"></i> {% render_field form.mode_of_transport class="js-example-basic-single"  %}
 </div>
 
 </div>
@@ -109,12 +109,12 @@ Mode of Transport <i class="fa fa-car" aria-hidden="true"></i> {% render_field f
 
 <br />
 <div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Quotation Type">
-Quotation Type <i class="fa fa-list" aria-hidden="true"></i> {% render_field form.quotation_type  class="js-example-basic-single" style="height:37px"  %}
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Regularities">
+Task Type <i class="fa fa-list" aria-hidden="true"></i> {% render_field form.quotation_type  class="js-example-basic-single" style="height:37px"  %}
 </div>
 
 <div class="col" data-toggle="tooltip" data-placement="left" title="Enter Airport of Origin" style="margin-left:80px;">
-Airport of Origin <i class="fa fa-plane" aria-hidden="true"></i>{% render_field form.airport_of_origin class="form-control col-md-10" style="height:37px" placeholder="Enter Airport of origin " %}
+Remark <i class="fa fa-plane" aria-hidden="true"></i>{% render_field form.airport_of_origin class="form-control col-md-10" style="height:37px" placeholder="Enter Remarks " %}
 </div>
 
 </div>
@@ -162,12 +162,12 @@ Airport of Origin <i class="fa fa-plane" aria-hidden="true"></i>{% render_field 
 
 <br />
 <div class="form-row">
-    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Time">
+    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Completion Time">
        Time <i class="fa fa-clock" aria-hidden="true"></i> {% render_field form.time  class="form-control" type="time" style="height:37px"  %}
     </div>
 
-    <div class="col" data-toggle="tooltip" data-placement="left" title="Select Date" style="margin-left:80px;">
-    Date <i class="fa fa-calendar" aria-hidden="true"></i>{% render_field form.date class="form-control col-md-10" type="date" style="height:37px" placeholder="Enter payment terms" %}
+    <div class="col" data-toggle="tooltip" data-placement="left" title="Select Completion Date" style="margin-left:80px;">
+    Date <i class="fa fa-calendar" aria-hidden="true"></i>{% render_field form.date class="form-control col-md-10" type="date" style="height:37px" placeholder="Enter Date " %}
     </div>
 
     </div>
@@ -191,9 +191,8 @@ Airport of Origin <i class="fa fa-plane" aria-hidden="true"></i>{% render_field 
 
 <br>
 <div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Commodities">
-    Commodity <i  data-toggle="modal" data-target="#exampleModalCenter2" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Commodity"></i>
-    {% render_field form.commodity class="js-example-basic-multiple"  multiple="multiple" style="height:37px"  %}
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Payment Terms in hours">
+Payment Terms <i class="fa fa-truck" aria-hidden="true"></i> {% render_field form.payment_terms class="form-control" style="height:37px" placeholder="Payment Terms /hr " %}
 </div>
 
 
@@ -217,9 +216,7 @@ Airport of Origin <i class="fa fa-plane" aria-hidden="true"></i>{% render_field 
 
 
 <div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Quotation Carrier">
-Quotation Carrier <i class="fa fa-truck" aria-hidden="true"></i> {% render_field form.carrier class="form-control" style="height:37px" placeholder="Input Carrier " %}
-</div>
+
 </div>
 
 

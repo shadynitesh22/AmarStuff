@@ -238,62 +238,62 @@ I'm just looking around. Will you tell me something about yourself?
 <div class="pcoded-navigatio-lavel ">Manage</div>
 <ul class="pcoded-item pcoded-left-item">
 <li class="pcoded-hasmenu">
-    {%  if request.user.roles.name == 'Accounts' or request.user.roles.name == 'Technical writer' %}
+    {%  if request.user.roles.name == 'Employees' or request.user.roles.name == 'Writer' %}
 
 
-<a href="javascript:void(0)">
-<span class="pcoded-micon"><i class="feather icon-box"></i></span>
-<span class="pcoded-mtext hvr-grow">Manage Job</span>
-</a>
-<ul class="pcoded-submenu">
+  <!--<a href="javascript:void(0)">-->
+  <!--<span class="pcoded-micon"><i class="feather icon-box"></i></span>-->
+  <!--<span class="pcoded-mtext hvr-grow">Manage Job</span>-->
+  <!--</a>-->
+  <!--<ul class="pcoded-submenu">-->
 
-<li class="">
-<a href="{% url 'joblist'  %}">
-<span class="pcoded-mtext hvr-grow">Job List</span>
-</a>
-</li>
+  <!--<li class="">-->
+  <!--<a href="{% url 'joblist'  %}">-->
+  <!--<span class="pcoded-mtext hvr-grow">Job List</span>-->
+  <!--</a>-->
+  <!--</li>-->
 
-<li class="">
-<a href="{% url 'booking_list'  %}">
-<span class="pcoded-mtext hvr-grow">Booking List</span>
-</a>
-</li>
-</ul>
-</li>
+  <!--<li class="">-->
+  <!--<a href="{% url 'booking_list'  %}">-->
+  <!--<span class="pcoded-mtext hvr-grow">Job started List</span>-->
+  <!--</a>-->
+  <!--</li>-->
+  <!--</ul>-->
+  <!--</li>-->
 
 
     {% else %}
 
-<a href="javascript:void(0)">
-<span class="pcoded-micon"><i class="feather icon-box"></i></span>
-<span class="pcoded-mtext hvr-grow">Manage Job</span>
-</a>
-<ul class="pcoded-submenu">
-<li class="">
-<a href="{% url 'job-begin' %}">
-<span class="pcoded-mtext hvr-grow">Create Job</span>
-</a>
-</li>
+<!--<a href="javascript:void(0)">-->
+<!--<span class="pcoded-micon"><i class="feather icon-box"></i></span>-->
+<!--<span class="pcoded-mtext hvr-grow">Manage Job</span>-->
+<!--</a>-->
+<!--<ul class="pcoded-submenu">-->
+<!--<li class="">-->
+<!--<a href="{% url 'job-begin' %}">-->
+<!--<span class="pcoded-mtext hvr-grow">Create Job</span>-->
+<!--</a>-->
+<!--</li>-->
 
-<li class="">
-<a href="{% url 'joblist'  %}">
-<span class="pcoded-mtext hvr-grow">Job List</span>
-</a>
-</li>
+<!--<li class="">-->
+<!--<a href="{% url 'joblist'  %}">-->
+<!--<span class="pcoded-mtext hvr-grow">Job List</span>-->
+<!--</a>-->
+<!--</li>-->
 
-<li class="">
-<a href="{% url 'booking_list'  %}">
-<span class="pcoded-mtext hvr-grow">Booking List</span>
-</a>
-</li>
-</ul>
-</li>
+<!--<li class="">-->
+<!--<a href="{% url 'booking_list'  %}">-->
+<!--<span class="pcoded-mtext hvr-grow">Job started List</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
   {% endif %}
 
 
 
 
-{%  if request.user.roles.name == "Manger" or request.user.roles.name == 'Accounts' or request.user.roles.name == 'Technical writer' %}
+{%  if request.user.roles.name == "Admin" %}
 
 <li class="pcoded-hasmenu">
 
@@ -326,59 +326,59 @@ I'm just looking around. Will you tell me something about yourself?
 </li>
     {% endif %}
 
-    {%  if request.user.roles.name == 'Accounts' or request.user.roles.name == 'Technical writer' %}
+    {%  if request.user.roles.name == 'Employee' or request.user.roles.name == 'Admin' %}
 <li class="pcoded-hasmenu">
 <a href="javascript:void(0)">
 <span class="pcoded-micon"><i class="fas fa-tasks"></i></span>
-<span class="pcoded-mtext hvr-grow">Manage Quotation</span>
+<span class="pcoded-mtext hvr-grow">Manage Task</span>
 </a>
 <ul class="pcoded-submenu">
 
 <li class=" ">
 <a href="{% url 'quotation_list' %}">
-<span class="pcoded-mtext hvr-grow">Quotation List</span>
+<span class="pcoded-mtext hvr-grow">Task List</span>
 </a>
 </li>
 
 <li>
 <a href="{% url 'quotation-list_type' %}">
-<span class="pcoded-mtext hvr-grow">Quotation Type List</span>
+<span class="pcoded-mtext hvr-grow">Task Type List</span>
 </a>
 </li>
 </li>
-<li class=" pcoded-hasmenu active pcoded-trigger">
-<a href="javascript:void(0)">
-<span class="pcoded-micon"><i class="fa fa-arrow-circle-o-down"></i>
-></span>
-<span class="pcoded-mtext hvr-grow ">Manage Work of Scope</span>
-</a>
-<ul class="pcoded-submenu ">
+<!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
+<!--<a href="javascript:void(0)">-->
+<!--<span class="pcoded-micon"><i class="fa fa-arrow-circle-o-down"></i>-->
+<!--&gt;</span>-->
+<!--<span class="pcoded-mtext hvr-grow ">Manage Work of Scope</span>-->
+<!--</a>-->
+<!--<ul class="pcoded-submenu ">-->
 
-<li class="">
-<a href="{% url 'create_work_of_scope_list' %}">
-<span class="pcoded-mtext hvr-grow">List of Work of Scope</span>
+<!--<li class="">-->
+<!--<a href="{% url 'create_work_of_scope_list' %}">-->
+<!--<span class="pcoded-mtext hvr-grow">List of Work of Scope</span>-->
 
-</a>
-</li>
+<!--</a>-->
+<!--</li>-->
 
 
 
 </ul>
 </li>
-<li class=" pcoded-hasmenu active pcoded-trigger">
-<a href="javascript:void(1)">
-<span class="pcoded-micon"><i class="feather icon-box"></i
-></span>
-<span class="pcoded-mtext hvr-grow">Manage Commodity</span>
-</a>
-<ul class="pcoded-submenu">
-<li class="">
+<!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
+<!--<a href="javascript:void(1)">-->
+<!--<span class="pcoded-micon"><i class="feather icon-box"></i-->
+<!--&gt;</span>-->
+<!--<span class="pcoded-mtext hvr-grow">Manage Commodity</span>-->
+<!--</a>-->
+<!--<ul class="pcoded-submenu">-->
+<!--<li class="">-->
 
-<li class="">
-<a href="{% url 'commodity_list' %}">
-<span class="pcoded-mtext hvr-grow"> Commodity List</span>
-</a>
-</li>
+<!--<li class="">-->
+<!--<a href="{% url 'commodity_list' %}">-->
+<!--<span class="pcoded-mtext hvr-grow"> Commodity List</span>-->
+<!--</a>-->
+<!--</li>-->
 
 
 
@@ -389,103 +389,103 @@ I'm just looking around. Will you tell me something about yourself?
 <li class="pcoded-hasmenu">
 <a href="javascript:void(0)">
 <span class="pcoded-micon"><i class="fas fa-tasks"></i></span>
-<span class="pcoded-mtext hvr-grow">Manage Quotation</span>
+<span class="pcoded-mtext hvr-grow">Manage Task</span>
 </a>
 <ul class="pcoded-submenu">
 <li class=" ">
 <a href="{% url 'quotation-create' %}">
-<span class="pcoded-mtext hvr-grow">Add Quotation</span>
+<span class="pcoded-mtext hvr-grow">Add Task</span>
 </a>
 </li>
 <li class=" ">
 <a href="{% url 'quotation_list' %}">
-<span class="pcoded-mtext hvr-grow">Quotation List</span>
+<span class="pcoded-mtext hvr-grow">Task List</span>
 </a>
 </li>
 <li class=" ">
 <a href="{% url 'quotation-create_type' %}">
-<span class="pcoded-mtext hvr-grow">Add Quotation Type</span>
+<span class="pcoded-mtext hvr-grow">Add Task Type</span>
 </a>
 </li>
 <li>
 <a href="{% url 'quotation-list_type' %}">
-<span class="pcoded-mtext hvr-grow">Quotation Type List</span>
+<span class="pcoded-mtext hvr-grow">Task Type List</span>
 </a>
 </li>
 </li>
-<li class=" pcoded-hasmenu active pcoded-trigger">
-<a href="javascript:void(0)">
-<span class="pcoded-micon"><i class="fa fa-arrow-circle-o-down"></i>
-></span>
-<span class="pcoded-mtext hvr-grow ">Manage Work of Scope</span>
-</a>
-<ul class="pcoded-submenu ">
-<li class=" ">
-<li class="">
-<a href="{% url 'create_work_of_scope' %}">
-<span class="pcoded-mtext hvr-grow">Add Work of Scope</span>
-</a>
-</li>
-<li class="">
-<a href="{% url 'create_work_of_scope_list' %}">
-<span class="pcoded-mtext hvr-grow">List of Work of Scope</span>
+<!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
+<!--<a href="javascript:void(0)">-->
+<!--<span class="pcoded-micon"><i class="fa fa-arrow-circle-o-down"></i>-->
+<!--&gt;</span>-->
+<!--<span class="pcoded-mtext hvr-grow ">Manage Work of Scope</span>-->
+<!--</a>-->
+<!--<ul class="pcoded-submenu ">-->
+<!--<li class=" ">-->
+<!--<li class="">-->
+<!--<a href="{% url 'create_work_of_scope' %}">-->
+<!--<span class="pcoded-mtext hvr-grow">Add Work of Scope</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li class="">-->
+<!--<a href="{% url 'create_work_of_scope_list' %}">-->
+<!--<span class="pcoded-mtext hvr-grow">List of Work of Scope</span>-->
 
-</a>
+<!--</a>-->
+<!--</li>-->
+
+
+
+<!--</ul>-->
+<!--</li>-->
+<!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
+<!--<a href="javascript:void(1)">-->
+<!--<span class="pcoded-micon"><i class="feather icon-box"></i-->
+<!--&gt;</span>-->
+<!--<span class="pcoded-mtext hvr-grow">Manage Commodity</span>-->
+<!--</a>-->
+<!--<ul class="pcoded-submenu">-->
+<!--<li class="">-->
+<!--<a href="{% url 'create_commodity' %}">-->
+<!--<span class="pcoded-mtext hvr-grow">Add Commodity</span>-->
+<!--</a>-->
+<!--</li>-->
+<!--<li class="">-->
+<!--<a href="{% url 'commodity_list' %}">-->
+<!--<span class="pcoded-mtext hvr-grow"> Commodity List</span>-->
+<!--</a>-->
+<!--</li>-->
+
+
+
+
+<!--</ul>-->
+<!--</li>-->
+
+
+
 </li>
 
 
 
 </ul>
 </li>
-<li class=" pcoded-hasmenu active pcoded-trigger">
-<a href="javascript:void(1)">
-<span class="pcoded-micon"><i class="feather icon-box"></i
-></span>
-<span class="pcoded-mtext hvr-grow">Manage Commodity</span>
-</a>
-<ul class="pcoded-submenu">
-<li class="">
-<a href="{% url 'create_commodity' %}">
-<span class="pcoded-mtext hvr-grow">Add Commodity</span>
-</a>
-</li>
-<li class="">
-<a href="{% url 'commodity_list' %}">
-<span class="pcoded-mtext hvr-grow"> Commodity List</span>
-</a>
-</li>
 
+<!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
+<!--<a href="javascript:void(1)">-->
+<!--<span class="pcoded-micon"><i class="feather icon-box"></i></span>-->
+<!--<span class="pcoded-mtext hvr-grow">Manage Documentation</span>-->
+<!--</a>-->
+<!--<ul class="pcoded-submenu">-->
+<!--<li class="">-->
 
+<!--</li>-->
+<!--  <li class="">-->
+<!--<a href="{% url 'list-documentation'  %}">-->
+<!--<span class="pcoded-mtext hvr-grow">AirwayBill List</span>-->
+<!--</a>-->
 
-
-</ul>
-</li>
-
-
-
-</li>
-
-
-
-</ul>
-</li>
-
-<li class=" pcoded-hasmenu active pcoded-trigger">
-<a href="javascript:void(1)">
-<span class="pcoded-micon"><i class="feather icon-box"></i></span>
-<span class="pcoded-mtext hvr-grow">Manage Documentation</span>
-</a>
-<ul class="pcoded-submenu">
-<li class="">
-
-</li>
-  <li class="">
-<a href="{% url 'list-documentation'  %}">
-<span class="pcoded-mtext hvr-grow">AirwayBill List</span>
-</a>
-
-</ul>
-    </li>
+<!--</ul>-->
+<!--    </li>-->
 
 
 

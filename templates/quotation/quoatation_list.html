@@ -51,7 +51,7 @@
 <div class="card" data-aos="fade-up" data-aos-duration="1000">
 <div class="card-block caption-breadcrumb">
 <div class="breadcrumb-header">
-<h5 class="font-weight-bold mb-3">Quotation List <i class="fa fa-list"></i></h5> <span style="opacity: 0.5">Every quotation added in the form gets listed down below</span>
+<h5 class="font-weight-bold mb-3">Task List <i class="fa fa-list"></i></h5> <span style="opacity: 0.5">Every Task added in the form gets listed down below</span>
 </div>
 {% include 'system/messages.html' %}
 <div class="page-header-breadcrumb">
@@ -59,9 +59,9 @@
 <li class="breadcrumb-item">
 <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top" title="Go to homepage" > <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a href="">Manage Quotation</a>
+<li class="breadcrumb-item"><a href="">Manage Task</a>
 </li>
-<li class="breadcrumb-item"><a href="{% url 'quotation-create' %}">Add Quotation</a>
+<li class="breadcrumb-item"><a href="{% url 'quotation-create' %}">Add Task</a>
 </li>
 </ul>
 </div>
@@ -81,9 +81,9 @@
 <table id="simpletable" class="table table-striped table-bordered nowrap">
 <thead>
 <tr>
-<th scope="col" >Quotation No <i class="feather icon-hash"></i></th>
-<th scope="col">Commodity <i class="fas fa-solid fa-parachute-box"></i></th>
-<th scope="col">Customer Name <i class="feather icon-user"></i></th>
+<th scope="col" >Task No <i class="feather icon-hash"></i></th>
+<th scope="col">Work of scope <i class="fas fa-solid fa-parachute-box"></i></th>
+<th scope="col">Employees Name <i class="feather icon-user"></i></th>
 <th scope="col">Status <i class="feather icon-help-circle"></i></th>
 <th scope="col">Send Email <i class="feather icon-mail"></i></th>
 <th scope="col">View <i class="feather icon-eye"></i></th>
@@ -97,7 +97,7 @@
 <tr>
 {% for quotation in quotation %}
 <td>{{quotation.quotation_number}}</td>
-<td>{% for area in quotation.commodity.all %}{{ area.commodity_name }}
+<td>{% for area in quotation.work_of_scope.all %}{{ area.name }}
 
   <br/>{% endfor %}</td>
 
@@ -106,7 +106,7 @@
 
 
 <td data-toggle="tooltip" data-placement="left" title="Send Email by clicking the icon. "><a href="{% url 'email_page' quotation.id %}" class=""><i class="feather icon-mail"></i></a></td>
-<td data-toggle="tooltip" data-placement="left" title="View Quotation in detail."><a href="{% url 'quotation_detail' quotation.id %}" class=""><i class="fas fa-eye"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="View Task in detail."><a href="{% url 'quotation_detail' quotation.id %}" class=""><i class="fas fa-eye"></i></a></td>
 
 
 

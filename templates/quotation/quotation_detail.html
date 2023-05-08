@@ -46,8 +46,8 @@
           <div class="card" data-aos="fade-up" data-aos-duration="1000">
             <div class="card-block caption-breadcrumb">
               <div class="breadcrumb-header">
-                <h5>Quotation Detail</h5>
-                <span>Every quotation added in the form gets listed down
+                <h5>Task Detail</h5>
+                <span>Every Task added in the form gets listed down
                   below</span>
               </div>
               {% include 'system/messages.html' %}
@@ -58,7 +58,7 @@
                     title="Go back to home page"> <i class="feather icon-home"></i> </a>
                   </li>
                   <li class="breadcrumb-item">
-                    <a href="">Manage Quotation</a>
+                    <a href="">Manage Task</a>
                   </li>
                  
                 </ul>
@@ -72,12 +72,12 @@
               
             <a href="{% url 'quotation_list' %}" style="font-size: 15px; width: 150px;"
               class="btn text-dark font-weight-bold" data-toggle="tooltip" data-placement="top"
-              title="Go back to quotation list" ><i class="fas fa-arrow-left"></i> Quotation List</a>
+              title="Go back to task   list" ><i class="fas fa-arrow-left"></i> Task List</a>
             </div>
             <div class="d-flex justify-content-end" style="margin-bottom: 30px;">
-              <td><a href="{% url 'update_quotation' quotation.id %}" class=""><i class="fas fa-edit" style="font-size: 20px; margin-right:20px ;" data-toggle="tooltip" data-placement="top" title="Edit Quotation"></i> </i></a></td>
+              <td><a href="{% url 'update_quotation' quotation.id %}" class=""><i class="fas fa-edit" style="font-size: 20px; margin-right:20px ;" data-toggle="tooltip" data-placement="top" title="Edit Task"></i> </i></a></td>
 
-              <td><a href="{% url 'delete_quotation' quotation.id %}" class=""><i class="fas fa-trash" style="font-size: 20px; margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="Delete Quotation"></i></a></td>
+              <td><a href="{% url 'delete_quotation' quotation.id %}" class=""><i class="fas fa-trash" style="font-size: 20px; margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="Delete Task"></i></a></td>
 
               <td><a onclick="printDiv('printableArea')" value="print a div!" target="_blank" ><i class="fas fa-print" style="font-size: 20px; margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="Print Quotation"></i></a></td>
             </div>
@@ -97,9 +97,8 @@
 
 
 
+                  Type of Task
 
-
-                    Mode of Transport
                   </span>
                   <span data-v-05b4f093="" data-v-b090a320=""
                     class="float-right text-muted">{{quotation.mode_of_transport}}
@@ -108,73 +107,75 @@
                 <hr />
                 <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Type of Transport
-                  </span>
+                    Select Regularities
+             </span>
+
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.quotation_type}}
                   </span>
                 </p>
                 <hr />
                 <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Airport of Origin
-                  </span>
+
+Remarks                  </span>
+
                   <span data-v-05b4f093="" data-v-b090a320=""
                     class="float-right text-muted">{{quotation.airport_of_origin}}
                   </span>
                 </p>
                 <hr />
+<!--                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                    Airport of Destination-->
+<!--                  </span>-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">-->
+<!--                    {{quotation.airport_of_destination}}-->
+<!--                  </span>-->
+<!--                </p>-->
+<!--                <hr />-->
+<!--                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                    Commodity-->
+<!--                  </span>-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320=""-->
+<!--                    class="float-right text-muted">{% for area in quotation.commodity.all %}{{ area.commodity_name }}<br />{% endfor %}-->
+<!--                  </span>-->
+<!--                </p>-->
+<!--                <hr />-->
+<!--                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                    Pieces-->
+<!--                  </span>-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320=""-->
+<!--                    class="float-right text-muted">{{quotation.no_of_shipment}}-->
+<!--                  </span>-->
+<!--                </p>-->
+<!--                <hr />-->
                 <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Airport of Destination
-                  </span>
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">
-                    {{quotation.airport_of_destination}}
-                  </span>
-                </p>
-                <hr />
-                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Commodity
-                  </span>
-                  <span data-v-05b4f093="" data-v-b090a320=""
-                    class="float-right text-muted">{% for area in quotation.commodity.all %}{{ area.commodity_name }}<br />{% endfor %}
-                  </span>
-                </p>
-                <hr />
-                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Pieces
-                  </span>
-                  <span data-v-05b4f093="" data-v-b090a320=""
-                    class="float-right text-muted">{{quotation.no_of_shipment}}
-                  </span>
-                </p>
-                <hr />
-                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Work of Scope
+                    Task Scope
                   </span>
                   <span data-v-05b4f093="" data-v-b090a320=""
                     class="float-right text-muted">{% for area in quotation.work_of_scope.all %}{{ area.name }}<br />{% endfor %}
                   </span>
                 </p>
-                <hr />
-                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    AMS Fee
-                  </span>
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">
-                    {{quotation.ams_fee}}
-                  </span>
-                </p>
-                <hr />
-                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Routine
-                  </span>
-                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.routine}}
-                  </span>
-                </p>
+<!--                <hr />-->
+<!--                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                    AMS Fee-->
+<!--                  </span>-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">-->
+<!--                    {{quotation.ams_fee}}-->
+<!--                  </span>-->
+<!--                </p>-->
+<!--                <hr />-->
+<!--                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                    Routine-->
+<!--                  </span>-->
+<!--                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.routine}}-->
+<!--                  </span>-->
+<!--                </p>-->
                 <hr />
                 <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
@@ -194,7 +195,7 @@
                 <hr />
                 <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Quotation Payment Terms
+                    Task Payment Terms
                   </span>
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.payment_terms}}
                   </span>
@@ -202,7 +203,7 @@
                 <hr />
                 <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                   <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                    Customer's Name
+                    Employee's Name
                   </span>
                   <span data-v-05b4f093="" data-v-b090a320=""
                     class="float-right text-muted">{{quotation.customer.customer_name}}

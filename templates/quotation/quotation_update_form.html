@@ -65,16 +65,16 @@
 <div class="breadcrumb-header">
 
 
-<h1 class="font-weight-bold mb-3">Quotation Form <i class="feather icon-box hvr-pulse"></i></h1>
-<span style="opacity:0.5;">Update your quotation form, it will be listed in the quotation list </div>
+<h1 class="font-weight-bold mb-3">Task Form <i class="feather icon-box hvr-pulse"></i></h1>
+<span style="opacity:0.5;">Add your task form, it will be listed in the task list </div>
 <div class="page-header-breadcrumb">
 <ul class="breadcrumb-title">
 <li style="color: aliceblue;" class="breadcrumb-item">
 <a href="{% url 'dashboard' %}"> <i class="feather icon-home"data-toggle="tooltip" data-placement="top" title="Go to Homepage"></i> </a>
 </li>
-<div class="breadcrumb-item"><a href="">Manage Quotation</a>
+<div class="breadcrumb-item"><a href="">Manage Task</a>
 </div>
-<div class="breadcrumb-item"><a href="">Quotation List</a>
+<div class="breadcrumb-item"><a href="{% url 'quotation_list' %}">Task List</a>
 </div>
 </ul>
 </div>
@@ -92,41 +92,15 @@
 
 
 
-<div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Add and Select Customers">
-Customer <i  data-toggle="modal" data-target="#exampleModalCenter1" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Customer"></i> {% render_field form.customer class="js-example-basic-single" %}
+<div class="form-row"  >
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Employees">
+Employees <i data-toggle="modal" data-target="#exampleModalCenter1" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Customer"></i> {% render_field form.customer id="customer"  class="js-example-basic-single" %}
 </div>
 
 
 
-<div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Select Mode of Transport" style="margin-left:80px;">
-Mode of Transport <i class="fa fa-car" aria-hidden="true"></i> {% render_field form.mode_of_transport class="js-example-basic-single"  %}
-</div>
-
-</div>
-
-
-
-<br />
-<div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Add Quotation Type">
-Quotation Type <i class="fa fa-list" aria-hidden="true"></i> {% render_field form.type  class="js-example-basic-single" style="height:37px"  %}
-</div>
-
-<div class="col" data-toggle="tooltip" data-placement="top" title="Enter Airport of Origin" style="margin-left:80px;">
-Airport of Origin <i class="fa fa-plane" aria-hidden="true"></i>{% render_field form.airport_of_origin class="form-control col-md-10" style="height:37px" placeholder="Enter Airport of origin " %}
-</div>
-
-</div>
-<br />
-<div class="form-row">
-<div class="col" data-toggle="tooltip" data-placement="top" title="Enter Airport of Destination">
-Airport Destination <i class="fa fa-plane" aria-hidden="true"></i> {% render_field form.airport_of_destination class="form-control col-md-10" style="height:37px" placeholder="Enter Airport of Destination " %}
-</div>
-
-<div class="col" data-toggle="tooltip" data-placement="top" title="Enter number of pieces">
-Pieces
-<i class="fa fa-archive" aria-hidden="true"></i> {% render_field form.no_of_shipment class="form-control col-md-10" type="number" style="height:37px" placeholder="Enter no of Pieces " %}
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Task Type" style="margin-left:80px;">
+Type of task <i class="fa fa-car" aria-hidden="true"></i> {% render_field form.mode_of_transport class="js-example-basic-single"  %}
 </div>
 
 </div>
@@ -135,46 +109,68 @@ Pieces
 
 <br />
 <div class="form-row">
-<div class="col" data-toggle="tooltip" data-placement="top" title="Enter Weight of Shipment">
-Weight of Shipment <i class="fas fa-weight" ></i> {% render_field form.weights_of_shipment class="form-control col-md-10" type="number" placeholder="Default value in KG" style="height:37px" %}
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Regularities">
+Task Type <i class="fa fa-list" aria-hidden="true"></i> {% render_field form.quotation_type  class="js-example-basic-single" style="height:37px"  %}
 </div>
 
-<div class="col" data-toggle="tooltip" data-placement="top" title="Emter AMS Fee">
-AMS Fee <i class="fa fa-envelope" aria-hidden="true"></i> {% render_field form.ams_fee class="form-control col-md-10" type="number" style="height:37px" placeholder="Enter AMS fee " %}
+<div class="col" data-toggle="tooltip" data-placement="left" title="Enter Airport of Origin" style="margin-left:80px;">
+Remark <i class="fa fa-plane" aria-hidden="true"></i>{% render_field form.airport_of_origin class="form-control col-md-10" style="height:37px" placeholder="Enter Remarks " %}
 </div>
 
 </div>
 
+<!--<div class="form-row">-->
+<!--<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Airport of Destination">-->
+<!--    Airport Destination <i class="fa fa-plane" aria-hidden="true"></i> {% render_field form.airport_of_destination  class="form-control" placeholder="Enter airport of destination" style="height:37px"  %}-->
+<!--</div>-->
+
+<!--<div class="col" data-toggle="tooltip" data-placement="left" title="Enter No. of Pieces" style="margin-left:80px;">-->
+<!--Pieces <i class="fa fa-list" aria-hidden="true"></i>{% render_field form.no_of_shipment class="form-control col-md-10" style="height:37px" type="number" placeholder="Enter number of pieces" %}-->
+<!--</div>-->
+
+<!--</div>-->
+
+
+
+
+<!--<div class="form-row">-->
+<!--    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Weight in KG">-->
+<!--        Weight of Shipment <i class="fa fa-weight" aria-hidden="true"></i> {% render_field form.weights_of_shipment  class="form-control" placeholder="Enter Weight of Shipment" type="number" style="height:37px"  %}-->
+<!--    </div>-->
+<!--    -->
+<!--    <div class="col" data-toggle="tooltip" data-placement="left" title="Enter AMS Fee" style="margin-left:80px;">-->
+<!--     AMS Fee <i class="fa fa-envelope" aria-hidden="true"></i>{% render_field form.ams_fee class="form-control col-md-10" style="height:37px" placeholder="Enter AMS fee" %}-->
+<!--    </div>-->
+
+<!--    </div>-->
+
+
+
+<!--<br />-->
+<!--<div class="form-row">-->
+<!--    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Quotation Routine">-->
+<!--        Quotation Routine <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.routine  class="form-control" placeholder="Enter Quotation Routine" style="height:37px"  %}-->
+<!--    </div>-->
+<!--    -->
+<!--    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Payments Terms" style="margin-left:80px;">-->
+<!--     Payment Terms <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.payment_terms class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}-->
+<!--    </div>-->
+<!--    -->
+<!--    </div>-->
 
 
 
 <br />
-
 <div class="form-row">
-<div class="col" data-toggle="tooltip" data-placement="top" title="Add Quotation Routine">
-Quotation Routine <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.routine class="form-control col-md-10" style="height:37px" placeholder="Describe your routine " %}
-</div>
+    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Completion Time">
+       Time <i class="fa fa-clock" aria-hidden="true"></i> {% render_field form.time  class="form-control" type="time" style="height:37px"  %}
+    </div>
 
+    <div class="col" data-toggle="tooltip" data-placement="left" title="Select Completion Date" style="margin-left:80px;">
+    Date <i class="fa fa-calendar" aria-hidden="true"></i>{% render_field form.date class="form-control col-md-10" type="date" style="height:37px" placeholder="Enter Date " %}
+    </div>
 
-<div class="col" data-toggle="tooltip" data-placement="top" title="Add Payments Terms">
-Payment Terms <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.payment_terms class="form-control col-md-10"style="height:37px" placeholder="Enter Payment Terms" %}
-</div>
-
-
-</div>
-
-<br />
-<div  class="form-row">
-<div class="col" data-toggle="tooltip" data-placement="top" title="Manually add or select Date">
-Date <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.date class="form-control col-md-10" type="date" style="height:37px"  %}
-</div>
-
-<div class="col" data-toggle="tooltip" data-placement="top" title="Manually add or select Time">
-Time <i class="fa fa-clock  " aria-hidden="true"></i> {% render_field form.time class="form-control col-md-10" type="time" style="height:37px" %}
-</div>
-
-
-</div>
+    </div>
 
 
 
@@ -182,32 +178,29 @@ Time <i class="fa fa-clock  " aria-hidden="true"></i> {% render_field form.time 
 
 <br />
 
-<div class="form-row" >
-<div class="col" data-toggle="tooltip" data-placement="left" title="Enter Charges in rs.">
+<!--<div class="form-row">-->
+<!--    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Charges">-->
+<!--        Charges <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.charges  class="form-control" placeholder="Enter Charges" type="number" style="height:37px"  %}-->
+<!--    </div>-->
 
-Charges <i class="fa fa-fax" aria-hidden="true"></i> {% render_field form.charges class="form-control col-md-10" type="number" style="height:37px" placeholder="Enter Charges "%}
-</div>
+<!--    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Custom Clearance" style="margin-left:80px;">-->
+<!--     Customer Clearance <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.custom_clearance class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}-->
+<!--    </div>-->
 
-<div class="col" data-toggle="tooltip" data-placement="right" title="Create Custom Clearance">
-Custom Clearance <i class="fa fa-university" aria-hidden="true"></i> {% render_field form.custom_clearance class="form-control col-md-10" style="height:37px" placeholder="Input Custom Clearance" %}
-</div>
-
-</div>
-
+<!--</div>-->
 
 <br>
 <div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Commodities">
-    Commodity <i  data-toggle="modal" data-target="#exampleModalCenter2" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Commodity"></i>
-    {% render_field form.commodity class="js-example-basic-multiple"  multiple="multiple" style="height:37px" placeholder="Enter Airport of origin " %}
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Payment Terms in hours">
+Payment Terms <i class="fa fa-truck" aria-hidden="true"></i> {% render_field form.payment_terms class="form-control" style="height:37px" placeholder="Payment Terms /hr " %}
 </div>
 
 
 
 
-<div class="col-md-5" data-toggle="tooltip" data-placement="right" title="Add Work of Scope" style="left:83px;">
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Work of Scope" style="left:83px;">
     Work of Scope <i data-toggle="modal" data-target="#exampleModalCenter" class="feather icon-plus-circle"></i>
-{% render_field form.work_of_scope class="js-example-basic-multiple  form-control"  multiple="multiple" style="margin-left:20px;"  style="height:37px"%}
+{% render_field form.work_of_scope class="js-example-basic-multiple "  multiple="multiple" style="margin-left:20px;" style="height:37px"  %}
 
 
 </div>
@@ -223,15 +216,14 @@ Custom Clearance <i class="fa fa-university" aria-hidden="true"></i> {% render_f
 
 
 <div class="form-row">
-<div class="col-md-5" data-toggle="tooltip" data-placement="right" title="Add Quotation Carrier">
-Quotation Carrier <i class="fa fa-truck" aria-hidden="true"></i> {% render_field form.carrier class="form-control" style="height:37px" placeholder="Input Carrier " %}
-</div>
+
 </div>
 
 
 
 
-
+<br>
+<br>
 <br>
 <div class="d-flex justify-content-center">
 
@@ -257,29 +249,6 @@ Quotation Carrier <i class="fa fa-truck" aria-hidden="true"></i> {% render_field
 
 
 <!-- Button trigger modal -->
-<script>
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-'use strict'
-
-// Fetch all the forms we want to apply custom Bootstrap validation styles to
-var forms = document.querySelectorAll('.needs-validation')
-
-// Loop over them and prevent submission
-Array.prototype.slice.call(forms)
-.forEach(function (form) {
-form.addEventListener('submit', function (event) {
-if (!form.checkValidity()) {
-event.preventDefault()
-event.stopPropagation()
-}
-
-form.classList.add('was-validated')
-}, false)
-})
-})()
-</script>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -338,55 +307,45 @@ form.classList.add('was-validated')
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
+      <div class="message">
 <div class="modal-body">
-<form method="POST" >
+<form method="POST"  >
 {% csrf_token %}
+
+<div class="form-row">
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Commodities">
 {{commodity|crispy}}
+</div>
+</div>
+
 <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
-<button type="submit"  class="btn btn-primary hvr-pulse">Save changes</button>
+<button type="submit"  class="btn btn-primary hvr-pulse" onclick=post_comment()>Save changes</button>
 </form>
 </div>
+</div>
+
 
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 <script>
-let form = document.getElementById('commodity1')
-let commentContainer = document.getElementById('media-body')
 
-form.addEventListener('submit', stopReload)
-function stopReload(e){
-e.preventDefault()
-let commenter = document.createElement('h5')
-let comment = document.createElement('p')
-commenter.classList.add('mt-0')
-$.ajax({
-type: "POST",
-url: "{% url 'quotation-create'  %}",
-data: $("#commodity1").serialize(),
-datatype: "json",
-success: function(data){
 
-form.reset()
-}
-})
-}
+$('#form').submit(function(e){
+    $.post('/quotation-create/', $(this).serialize(), function(data){ ...
+       $('.message').html(data.commodity_name,data.commodity_desc,data.type);
+
+    });
+    e.preventDefault();
+});
+
 
 </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 
 {% endblock %}
 </div>

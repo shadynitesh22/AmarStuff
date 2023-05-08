@@ -63,7 +63,7 @@
     <div class="row align-items-center">
     <div class="col-8">
     <h4 class="text-c-yellow f-w-600">{{user_count}}</h4>
-    <h6 class="text-muted m-b-0">Total Users Created </h6>
+    <h6 class="text-muted m-b-0">Total Employee's Created </h6>
     </div>
     <div class="col-4 text-right">
     <i class="feather icon-file-text f-28"></i>
@@ -75,7 +75,7 @@
     <div class="col-9">
     <a href="{% url 'user' %}" class="text-white">
 
-    <i class="feather icon-plus-circle"> Add User</i>
+    <i class="feather icon-plus-circle"> Add Employee</i>
     </a>
 
 
@@ -135,7 +135,7 @@
     <div class="row align-items-center">
     <div class="col-8">
     <h4 class="text-c-pink f-w-600">{{quotation_count}}</h4>
-    <h6 class="text-muted m-b-0">Total Quotation Issued</h6>
+    <h6 class="text-muted m-b-0">Total Task Issued</h6>
     </div>
 
     <div class="col-4 text-right">
@@ -148,7 +148,7 @@
     <div class="col-9">
     <a href="{% url 'quotation-create' %}" class="text-white">
 
-    <i class="feather icon-plus-circle"> Add Quotation</i>
+    <i class="feather icon-plus-circle"> Add Task</i>
     </a>
     </div>
     <div class="col-3 text-right">
@@ -165,7 +165,7 @@
     <div class="col-8">
     <h4 class="text-c-blue f-w-600">{{email_flag}}</h4>
 
-    <h6 class="text-muted m-b-0">Total Quotation Email Sent</h6>
+    <h6 class="text-muted m-b-0">Total Task Email Sent</h6>
     </div>
     <div class="col-4 text-right">
     <i class="feather icon-download f-28"></i>
@@ -191,7 +191,7 @@
     <div class="col-xl-8 col-md-12">
     <div class="card table-card">
     <div class="card-header">
-    <h5>Quotation <i class=" fas fa-solid fa-file-invoice"></i></h5>
+    <h5>Task <i class=" fas fa-solid fa-file-invoice"></i></h5>
     <div class="card-header-right">
     <ul class="list-unstyled card-option">
 
@@ -211,13 +211,13 @@
     <table class="table table-hover table-borderless">
     <thead>
     <tr>
-    <th scope="col">Quotation Number <i class=" fas fa-solid fa-hashtag"></i> </th>
+    <th scope="col">Task Number <i class=" fas fa-solid fa-hashtag"></i> </th>
 
 
 
 
     <th scope="col">Payment Terms <i class=" fas fa-solid fa-money-bill"></i></th>
-    <th scope="col">Customer Name <i class="fas fa-solid fa-user"></i></th>
+    <th scope="col">Employees Name <i class="fas fa-solid fa-user"></i></th>
 
 
     <th scope="col">Send Email  <i class="fas fa-solid fa-envelope"></i> </th>
@@ -227,7 +227,7 @@
     </thead>
 
     <tr>
-    {% for quotation in quotation|slice:"5:" %}
+    {% for quotation in quotation|slice:"3:" %}
     <td>{{quotation.quotation_number}}</td>
 
 
@@ -246,7 +246,7 @@
     </tbody>
     </table>
     <div class="text-center">
-    <a href="{% url 'quotation_list' %}" class="b-b-primary text-primary hvr-float">View Quotation List</a
+    <a href="{% url 'quotation_list' %}" class="b-b-primary text-primary hvr-float">View Task List</a
 
     >
 
@@ -263,7 +263,7 @@
     <div class="col-md-8">
 
 
-    <h5>Active User <i class=" fas fa-solid fa-user-clock"></i> </h5>
+    <h5>Active Employees <i class=" fas fa-solid fa-user-clock"></i> </h5>
     </div>
     <div class="col-md-4">
     <a href="{% url 'detail_user' request.user.id %}" class="feather icon-user hvr-float"> View</a>
@@ -309,7 +309,7 @@
 
 
     <div class="text-center">
-    <a href="{% url 'user_list'  %}" class="b-b-primary text-primary hvr-float">View all User</a
+    <a href="{% url 'user_list'  %}" class="b-b-primary text-primary hvr-float">View all Employees</a
     >
     </div>
     </div>

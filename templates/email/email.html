@@ -316,9 +316,7 @@ class="float-left"
 
 
 
-
-
-Mode of Transport:
+  Task Scope:
 </span>
 <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted text-warning"style="color:red;">{{form.mode_of_transport}}
 </span>
@@ -326,7 +324,7 @@ Mode of Transport:
 <hr />
     <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
 <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-Quotation Type:
+Task Type:
 </span>
 <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning"style="color:red;">{{form.quotation_type}}
 </span>
@@ -334,7 +332,7 @@ Quotation Type:
 <hr />
  <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
 <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-Quotation Number:
+Task Number:
 </span>
 <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning" style="color:red;">{{form.quotation_number}}
 </span>
@@ -342,81 +340,81 @@ Quotation Number:
 <hr />
 <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
 <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-Airport of Origin:
+Remark:
 </span>
 <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning"style="color:red;">
 {{form.airport_of_origin}}
 </span>
 </p>
-<hr />
-<p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-<span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-Ams Fee:
-</span>
-<span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning"style="color:red;">
-{{form.ams_fee}}
-</span>
-</p>
-<hr />
-<p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-<span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-Custom Clearance:
-</span>
-<span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning"style="color:red;">
-{{form.custom_clearance}}
-</span>
-</p>
-<hr />
-<p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-<span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-Airport of Destination:
-</span>
-<span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning" style="color:red;">{{form.airport_of_destination}}
-</span>
-</p>
-<hr />
+<!--<hr />-->
+<!--<p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--<span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--Ams Fee:-->
+<!--</span>-->
+<!--<span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning"style="color:red;">-->
+<!--{{form.ams_fee}}-->
+<!--</span>-->
+<!--</p>-->
+<!--<hr />-->
+<!--<p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--<span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--Custom Clearance:-->
+<!--</span>-->
+<!--<span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning"style="color:red;">-->
+<!--{{form.custom_clearance}}-->
+<!--</span>-->
+<!--</p>-->
+<!--<hr />-->
+<!--<p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--<span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--Airport of Destination:-->
+<!--</span>-->
+<!--<span data-v-05b4f093="" data-v-b090a320="" class="float-right text-warning" style="color:red;">{{form.airport_of_destination}}-->
+<!--</span>-->
+<!--</p>-->
+<!--<hr />-->
 
 
-                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                                        Commodity:
-                                        </span>
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{% for area in form.commodity.all %}{{ area.commodity_name }}<br/>{% endfor %}
-                                        </span>
-                                        </p>
-                                        <hr />
-                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                                            Pieces:
-                                        </span>
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{form.no_of_shipment}}
-                                        </span>
-                                        </p>
-                                        <hr />
-                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                                        Work of Scope:
-                                        </span>
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{% for area in form.work_of_scope.all %}{{ area.name }}<br/>{% endfor %}
-                                        </span>
-                                        </p>
-                                        <hr />
-                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                                        AMS Fee:
-                                        </span>
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">
-                                        {{ams_fee}}
-                                        </span>
-                                        </p>
-                                        <hr />
-                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                                        Routine:
-                                        </span>
-                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{form.routine}}
-                                        </span>
-                                        </p>
+<!--                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                                        Commodity:-->
+<!--                                        </span>-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{% for area in form.commodity.all %}{{ area.commodity_name }}<br/>{% endfor %}-->
+<!--                                        </span>-->
+<!--                                        </p>-->
+<!--                                        <hr />-->
+<!--                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                                            Pieces:-->
+<!--                                        </span>-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{form.no_of_shipment}}-->
+<!--                                        </span>-->
+<!--                                        </p>-->
+<!--                                        <hr />-->
+<!--                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                                        Work of Scope:-->
+<!--                                        </span>-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{% for area in form.work_of_scope.all %}{{ area.name }}<br/>{% endfor %}-->
+<!--                                        </span>-->
+<!--                                        </p>-->
+<!--                                        <hr />-->
+<!--                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                                        AMS Fee:-->
+<!--                                        </span>-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">-->
+<!--                                        {{ams_fee}}-->
+<!--                                        </span>-->
+<!--                                        </p>-->
+<!--                                        <hr />-->
+<!--                                        <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-left">-->
+<!--                                        Routine:-->
+<!--                                        </span>-->
+<!--                                        <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{form.routine}}-->
+<!--                                        </span>-->
+<!--                                        </p>-->
                                         <hr />
                                         <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                                         <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
@@ -436,7 +434,7 @@ Airport of Destination:
                                         <hr />
                                         <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                                         <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                                        Quotation Payment Terms:
+                                        Task Payment Terms:
                                         </span>
                                         <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{form.payment_terms}}
                                         </span>
@@ -444,7 +442,7 @@ Airport of Destination:
                                         <hr />
                                         <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
                                         <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
-                                        Customer's Name:
+                                        <Employee></Employee>'s Name:
                                         </span>
                                         <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{form.customer.customer_name}}
                                         </span>
