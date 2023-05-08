@@ -1,0 +1,169 @@
+{% extends 'system/base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+<body>
+
+  <!-- Pre-loader start -->
+  <div class="theme-loader">
+    <div class="ball-scale">
+      <div class="contain">
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+
+
+
+<div class="page-body "  >
+
+
+
+
+<div class="row  " >
+  
+
+<div class="col-12 col-lg-9 col-lg-9 col-xl-6">
+<div  class="card " style="width: 1000px; " >          
+
+  <div class="card-block caption-breadcrumb">
+    <div class="breadcrumb-header">   
+        <h5 class="font-weight-bold mb-3">User Form <i class="fa fa-user"></i></h5>
+        <span style="opacity: 0.6;">Add Users form user form, it will be listed in the user list</span>
+    </div>
+    <div class="page-header-breadcrumb">
+      <ul class="breadcrumb-title">
+      <li class="breadcrumb-item">
+      <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="left" title="Go to home page"> <i class="feather icon-home"></i> </a>
+      </li>
+      <li class="breadcrumb-item"><a href="">Manage User</a>
+      </li>
+      <li class="breadcrumb-item"><a href="{% url 'user_list' %}">User List</a>
+      </li>
+      </ul>
+      </div>
+ 
+</div>
+<h3 class=" text-center text-white mb-3">Quotation Form</h3>
+ 
+{% include 'system/form_errors.html' %}
+
+
+
+<div class="card-block">
+  
+
+
+
+{% for hidden_field in form.hidden_fields %}
+{{ hidden_field }}
+{% endfor %}
+<form action="" method="POST">
+{% csrf_token %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="col-sm-8 col-lg-10">
+        <div class="input-group">
+          <label class="col-sm-3 col-form-label">Email*</label>
+           
+            {% render_field form.email class="form-control"  %}
+        </div>
+        <div class="input-group">
+          <label class="col-sm-3 col-form-label">Username*</label>
+         
+            {% render_field form.username class="form-control" %}
+        </div>
+        <div class="input-group">
+          <label class="col-sm-3 col-form-label">Roles*</label>
+            
+            {% render_field form.roles class="form-control" %}
+        </div>
+
+  
+    </div>           
+      </div>
+ 
+  
+  </div>
+</div>
+
+<div class="col-sm-7">
+
+{% if field.help_text %}
+<small class="form-text text-muted">{{ field.help_text }}</small>
+{% endif %}
+</div>
+
+
+
+
+
+
+
+
+
+<br>
+
+<div class="d-flex justify-content-center">
+
+<button type="submit" class="btn btn-primary hvr-pulse" style="background-color:#353c4e"><i class="fas fa-step-forward"></i>Continue</button>
+</div>
+
+
+
+
+</form>
+
+
+</div>  
+</div>
+
+
+
+</body>
+{% endblock %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

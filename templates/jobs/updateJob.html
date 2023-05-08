@@ -1,0 +1,186 @@
+{% extends 'system/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+<body>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Self-executing function
+(function() {
+'use strict';
+window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+var forms = document.getElementsByClassName('needs-validation');
+
+// Loop over them and prevent submission
+var validation = Array.prototype.filter.call(forms, function(form) {
+form.addEventListener('submit', function(event) {
+if (form.checkValidity() === false) {
+event.preventDefault();
+event.stopPropagation();
+}
+form.classList.add('was-validated');
+}, false);
+});
+}, false);
+})();
+</script>
+
+</body>
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+<div class="row" data-aos="fade-up" data-aos-duration="1000">
+<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+<div class="card" style="width: 1000px;">
+
+
+
+
+
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header">
+<h5 class="font-weight-bold mb-3">Update Job Bookings</h5>
+<span style="opacity: 0.6;">Once the Job is Update ,it gets listed in the booking list</span>
+</div>
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href=""> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Job List</a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Job Status List</a>
+</li>
+</ul>
+</div>
+</div>
+<h1 class="text-uppercase text-center text-white mb-5"></h1>
+
+<div class="d-flex justify-content-center">
+<form action="" method="POST" class="row g-3 needs-validation" novalidate>
+{% csrf_token %}
+<div class="container">
+<div class="row">
+<div class="input-group col-md-5">
+<label  class="col-md-5 col-form-label">AirBill Number</label> {% render_field form.air_bill_number class="form-control" %}
+</div>
+
+<div class="input-group col-md-5">
+<label class="col-md-5 col-form-label"> Airport Destination</label>
+
+{% render_field form.airport_destination class="form-control"%}
+
+</div>
+
+<div class="input-group col-md-5">
+<label class="col-md-5 col-form-label"> Date</label> {% render_field form.date class="form-control" type="date" %}
+</div>
+
+<div class="input-group col-md-5">
+<label class="col-md-5 col-form-label"> Time </label>
+
+{% render_field form.time type="time" class="form-control"%}
+
+</div>
+
+<div class="input-group col-md-5">
+<label class="col-md-5 col-form-label">Pieces </label> {% render_field form.pieces class="form-control" %}
+</div>
+
+<div class="input-group col-md-5">
+<label class="col-md-5 col-form-label">Weight of Shipments </label>
+
+{% render_field form.weight_of_shipment class="form-control"%}
+
+</div>
+
+<div class="input-group col-md-5">
+<label class="col-md-5 col-form-label">Carrier</label>
+
+{% render_field form.carrier class="form-control" %}
+
+</div>
+<div class="input-group col-md-5" >
+<label class="col-md-5 col-form-label"> Sender's Email </label>
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+{% render_field form.email class="form-control"  type="text" data-role="tagsinput" style="max-width:220px;" %}
+=======
+{% render_field form.email class="form-control"%}
+>>>>>>> parent of 07991ec... MultipleEmail--Frontend--Backend--20thApril2022-Nitesh
+=======
+{% render_field form.email class="form-control"%}
+>>>>>>> parent of 07991ec... MultipleEmail--Frontend--Backend--20thApril2022-Nitesh
+
+</div>
+
+
+
+<div class="d-flex justify-content-center">
+<button type="submit" style="background-color:#353c4e;margin:10px;" class="btn btn-primary hvr-pulse"><i class="fas fa-step-forward "></i>Continue</button>
+</div>
+</div>
+
+</div>
+</form>
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

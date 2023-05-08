@@ -1,0 +1,134 @@
+{% extends 'system/base.html' %} {% block content %}
+
+<body>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-header">
+
+<div class="row">
+
+<div class="card">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header">
+<h4 class="font-weight-bold mb-3">User List <i class="fa fa-users" aria-hidden="true"></i></h4>
+<span style="opacity: 0.6;">Add your user form, it will be listed in the users list</span>
+</div>
+{% include 'system/messages.html' %}
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top" title="Go to homepage"> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage User</a>
+</li>
+<li class="breadcrumb-item"><a href="{% url 'user' %}">Add User</a>
+</li>
+</ul>
+</div>
+
+<h1 class=" text-center text-white mb-3"></h1>
+<br>
+
+
+
+<div class="card-block">
+     <div class="col">
+
+
+
+<div class="dt-responsive table-responsive">
+<table id="simpletable" class="table table-striped table-bordered nowrap">
+
+
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Username <i class="fa fa-user"></i></th>
+<th scope="col">Email <i class="fa fa-envelope"></i></th>
+<th scope="col">Roles <i class="feather icon-hash" ></i></th>
+<th scope="col">Edit <i class="fas fa-edit"></i></th>
+<th scope="col">Delete<i class="fas fa-trash"></i></th>
+
+
+
+</tr>
+</thead>
+     <tbody >
+
+<tr>
+{% for user in user %}
+<th>User</th>
+<td>{{user.username}}</td>
+<td>{{user.email}}</td>
+<td>{{user.roles}}</td>
+
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="{% url 'update_user' user.id %}" class=""><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_user' user.id %}" class=""><i class="fas fa-trash"></i></a></td>
+
+
+</tr>
+{% endfor%}
+
+</tbody>
+
+
+</table>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+{% endblock %}
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>

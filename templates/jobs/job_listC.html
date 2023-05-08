@@ -1,0 +1,149 @@
+{% extends 'system/base.html' %} {% block content %}
+
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body"data-aos="fade-up" data-aos-duration="1000">
+
+
+<div class="card">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header">
+<h5 class="font-weight-bold mb-3">Quotation Status List</h5>
+<span style="opacity: 0.6;">Once the quotation is completed, it is listed down below</span>
+</div>
+{% include 'system/messages.html' %}
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top"
+title="Go to Homepage"> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Quotation</a>
+</li>
+<li class="breadcrumb-item"><a href="">Quotation Completed</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="card-header">
+<div class="card-block">
+<div class="col">
+
+<div class="d-flex">
+<div class="justify-content-end">
+<form action="{% url 'Search'%}" class="form-inline" method="get">
+<div class="form-group mx-sm-3 mb-2">
+<label for="" class="sr-only">search</label>
+<input name="search" type="" class="form-control" id="" placeholder="Keyword">
+<button class="btn btn-sm ml-2 " type="submit"> <i class="fas fa-search">  Search</i></button>
+</div>
+</form>
+</div>
+
+
+
+</div>
+<div class="dt-responsive table-responsive">
+<table id="simpletable" class="table table-striped table-bordered nowrap">
+<thead>
+<tr>
+<th scope="col">Quota No</th>
+
+<th scope="col">Status</th>
+
+<th scope="col">Sent To</th>
+
+<th scope="col">Quotation Sent By</th>
+
+
+
+
+
+</tr>
+</thead>
+
+<tr>
+{% for quotation in job %}
+
+<td>{{quotation.quotation.quotation_number}}</td>
+<td>{{quotation.status}}</td>
+
+<td>{{quotation.quotation.customer.customer_name}}</td>
+
+<td>{{quotation.user}}</td>
+
+
+
+
+
+
+<tr>
+{% endfor%}
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

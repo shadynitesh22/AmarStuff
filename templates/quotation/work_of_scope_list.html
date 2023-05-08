@@ -1,0 +1,142 @@
+{% extends 'system/base.html' %} {% block content %}
+
+<body>
+
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body" >
+
+
+<div class="card" data-aos="fade-up" data-aos-duration="1000">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header mb-3">
+<h5 class="font-weight-bold mb-3">Work of Scope List <i class="fa fa-list">
+
+</i></h5>
+<span style="opacity: 0.6;">Every Work of Scope  added in the form gets listed down below</span>
+</div>
+{% include 'system/messages.html' %}
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top"
+title="Go to Homepage">  <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Work of scope</a>
+</li>
+<li class="breadcrumb-item" ><a href="{% url 'create_work_of_scope' %}"  >Add Work of scope </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="card-header">
+<div class="card-block">
+<div class="col">
+
+
+</div>
+<div class="dt-responsive table-responsive">
+<table id="simpletable" class="table table-striped table-bordered nowrap">
+<thead>
+<tr>
+<!-- <th scope="col">List</th> -->
+<!-- <th scope="col">Mode of transport</th> -->
+<!-- <th scope="col">Type</th> -->
+<!-- <th scope="col">Airport of Origin</th>
+<th scope="col">Airport of Destination</th> -->
+<!-- <th scope="col">Commodity</th> -->
+<th scope="col">Name</th>
+<!-- <th scope="col">Work of scope</th> -->
+<!-- <th scope="col">Asm Fee</th> -->
+<th scope="col">Desc</th>
+<!-- <th scope="col">Time</th> -->
+<!-- <th scope="col">Date</th> -->
+<th scope="col">Type</th>
+
+<th scope="col">Edit</th>
+<th scope="col">Delete</th>
+
+
+
+</tr>
+</thead>
+
+<tr>
+{% for quotation in work_of_scope_list %}
+<!-- <th >Quotations</th> -->
+<!-- <td>{{quotation.mode_of_transport}}</td> -->
+<!-- <td>{{quotation.quotation_type}}</td>
+<td>{{quotation.airport_of_origin}}</td>
+<td>{{quotation.airport_of_destination}}</td> -->
+<!-- <td>{{quotation.commodity}}</td> -->
+<td>{{quotation.name}}</td>
+<!-- <td>{{quotation.work_of_scope}}</td> -->
+<!-- <td>{{quotation.ams_fee}}</td> -->
+<td>{{quotation.description}}</td>
+<!-- <td>{{quotation.time}}</td> -->
+<!-- <td>{{quotation.date}}</td> -->
+<td>{{quotation.is_active}}</td>
+
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="{% url 'update_work_of_scope' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_work_of_scope' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>
+
+
+
+</tr>
+{% endfor%}
+
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

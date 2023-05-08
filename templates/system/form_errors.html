@@ -1,0 +1,10 @@
+ {% if form.errors %}
+       {% for field in form %}
+           {% for error in field.errors %}
+              <div data-dismiss="alert"  class="alert alert-danger" role="alert">
+                   <strong>{{ error|escape }}</strong>
+              </div>
+
+           {% endfor %}
+       {% endfor %}
+    {% endif %}

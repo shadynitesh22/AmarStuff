@@ -1,0 +1,136 @@
+{% extends 'system/base.html' %} {% block content %}
+
+<body>
+
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+
+<div class="card" data-aos="fade-up" data-aos-duration="1000">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header mb-3">
+<h5 class="font-weight-bold mb-3">Quotation Sent List <i class="fa fa-list"></i></h5>
+<span style="opacity:0.5">Every quotation added in the form gets listed down below</span>
+</div>
+
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top"
+title="Go to Homepage"> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Quotation</a>
+</li>
+<li class="breadcrumb-item"><a href="">Quotation List</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="card-header">
+<div class="card-block">
+
+
+
+
+{% include 'system/messages.html' %}
+
+
+<div class="dt-responsive table-responsive">
+<table id="simpletable" class="table table-striped table-bordered nowrap">
+<thead>
+<tr>
+
+<th scope="col">Quota Number</th>
+
+<th scope="col">Status</th>
+
+<th scope="col">Sent To</th>
+
+<th scope="col">Quotation Sent By</th>
+
+
+
+
+
+
+
+</tr>
+</thead>
+<tbody>
+<tr>
+{% for quotation in job %}
+
+<td>{{quotation.quotation.quotation_number}}</td>
+<td>{{quotation.status}}</td>
+
+
+<td>{{quotation.quotation.customer.customer_name}}</td>
+
+<td>{{quotation.user}}</td>
+
+
+
+
+
+</tr>
+{% endfor%}
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+{% endblock %}

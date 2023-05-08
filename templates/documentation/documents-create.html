@@ -1,0 +1,550 @@
+  {% extends 'system/base.html' %}
+  {% load crispy_forms_tags %}
+  {% load widget_tweaks %}
+  {% block content %}
+
+  <body>
+
+  <!-- Pre-loader start -->
+  <div class="theme-loader">
+  <div class="ball-scale">
+  <div class="contain">
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  <div class="ring">
+  <div class="frame"></div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+
+  </body>
+  <div class="pcoded-content">
+  <div class="pcoded-inner-content">
+  <div class="main-body">
+  <div class="page-wrapper">
+  <div class="page-body">
+
+  <div class="row  " data-aos="fade-up" data-aos-duration="1000">
+  <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+  <div class="card" style="width: 1000px;">
+
+  <div class="d-flex justify-content-center">
+
+
+  <div class="row">
+  <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+  <div class="card" style="width: 1000px;">
+  <div class="card-block caption-breadcrumb">
+  <div class="breadcrumb-header">
+  <h5 class="font-weight-bold mb-3">Add AirwayBill <i class="fa fa-shopping-cart" aria-hidden="true"></i></h5>
+  <span style="opacity: 0.6;">Once the AirwayBill  is added, it gets
+  listed in the Airway list</span>
+  </div>
+
+  <div class="page-header-breadcrumb">
+  <ul class="breadcrumb-title">
+  <li class="breadcrumb-item">
+  <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top"
+  title="Go to Homepage"> <i
+  class="feather icon-home"></i> </a>
+  </li>
+  <li class="breadcrumb-item"><a href="">Manage AirwayBill</a>
+  </li>
+  <li class="breadcrumb-item"><a href="{% url 'commodity_list' %}">Manage AirwayList List</a>
+  </li>
+  </ul>
+  </div>
+  <h1 class="text-uppercase text-center text-white mb-5"></h1>
+  </div>
+  <div class="card-block">
+
+
+
+{% include "system/messages.html" %}
+
+
+
+
+  <div class="d-flex justify-content-center">
+
+  </div>
+  <form data-persist="garlic" method="POST">
+  {% csrf_token %}
+  <div class="container">
+  <div class="row">
+
+  <div class="col">
+
+  <label class="col-md-3 col-form-label"> <i data-toggle="modal" data-target="#exampleModalCenter1" class="fas fa-plus"></i>Shippers Address <i
+  class="feather icon-users"></i></label>
+  <div class="col-sm-8 col-lg-10" data-toggle="tooltip"
+  data-placement="top" title="Write a role name">
+  <div class="input-group">
+
+  {% render_field form.shippers_address class="js-example-basic-multiple" placeholder="" %}
+  </div>
+  </div>
+  <div class="row">
+
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;">
+  <i data-toggle="modal" data-target="#exampleModalCenter2" class="fas fa-plus"></i> Consign Address <i class="feather icon-shield"></i> </label>
+
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.consign_address class="js-example-basic-multiple" placeholder="Enter performance list"   multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+      <div class="row">
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;"><i  data-toggle="modal" data-target="#exampleModalCenter3" class="fas fa-plus hvr-grow"></i>  Issuing Carrier <i
+  class="feather icon-shield"></i> </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.issuing_carrier class="js-example-basic-multiple" placeholder="Enter performance list"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+
+  <div class="row">
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;"><i  data-toggle="modal" data-target="#exampleModalCenter5" class="fas fa-plus hvr-grow"></i>  Airport of departure <i
+  class="feather icon-shield"></i> </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.airport_of_departure class="js-example-basic-multiple" placeholder="Enter performance list"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+      <div class="row">
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;"><i  data-toggle="modal" data-target="#exampleModalCenter4" class="fas fa-plus hvr-grow"></i> Accounting Information  <i
+  class="feather icon-shield"></i> </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.accounting_information class="js-example-basic-multiple" placeholder="Enter performance list"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;"> <i data-toggle="modal" data-target="#exampleModalCenter6" class="fas fa-plus"></i> Airport Destination <i
+  class="feather icon-shield"></i> </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.airport_of_destination class="js-example-basic-multiple" placeholder="Enter performance list"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;">    <i data-toggle="modal" data-target="#exampleModalCenterH" class="fas fa-plus"></i> Handling Information <i
+  class="feather icon-shield"></i> </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.handling_information class="js-example-basic-multiple" placeholder="Enter performance list"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;">  <i data-toggle="modal" data-target="#exampleModalCenter7" class="fas fa-plus"></i> Nature of Goods <i
+  class="feather icon-shield"></i> </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.nature_of_goods class="js-example-basic-multiple" placeholder="Enter performance list"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+
+  <div class="row">
+  <label class="col-md-2 col-form-label"
+  style="margin-left:12px;"><i data-toggle="modal" data-target="#exampleModalCenter8" class="fas fa-plus"></i> Currency <i
+  class="feather icon-shield"></i>
+  </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.currency class="js-example-basic-multiple" placeholder="Enter performance list"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+
+
+
+  <div class="row">
+  <label class="col-md-3 col-form-label"
+  style="margin-left:12px;"><i data-toggle="modal" data-target="#exampleModalCenter9" class="fas fa-plus"></i>  <i
+  class="feather icon-shield"></i>Shipping Information </label>
+  <div class="col-sm-12">
+  <div class="input-group  col-lg-10" data-toggle="tooltip" data-placement="top" title="Select multiple permissions"
+  style="margin-right:42px;">
+
+  {% render_field form.shipping class="js-example-basic-multiple" placeholder="Enter shipping  information"  multiple="multiple" required="True" style="height:37px" %}
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+
+  </div>
+  </div>
+
+
+
+  <div class="col-sm-7">
+
+  <br>
+
+  <div class="d-flex justify-content-end">
+
+  <button type="submit" class="btn btn-primary hvr-pulse"
+  style="background-color:#353c4e"><i
+  class="fas fa-step-forward"></i>Continue</button>
+  </div>
+
+  </div>
+
+
+  </form>
+
+
+  </div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Modal -->
+
+
+  <!-- Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle1"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+
+  <form method="POST" id="shippers" data-persist="garlic">
+
+
+  {% csrf_token %}
+    <div class="form-group">
+    <label for="exampleInputEmail1">Shippers Address </label>
+    <input type="text" class="form-control" id="shippers_address" name="address" aria-describedby="SHIPPERS ADDRESS" placeholder="Enter Shippers address">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input type="text" name="company_name" class="form-control" id="exampleInputPassword1" placeholder="Name">
+  </div>
+        <input type="hidden" name="form_type" value="shippers">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter2" tabindex="-2" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle2"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form method="POST" id="consign" data-persist="garlic">
+  {% csrf_token %}
+<div class="form-group">
+    <label for="exampleInputEmail2">Consign Address </label>
+    <input type="text" class="form-control" id="consign_address" name="addresss" aria-describedby="Consign ADDRESS" placeholder="Enter Consign address">
+    <small id="consign_help" class="form-text text-muted">Please write the complete address .</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input type="text" name="company_names" class="form-control" id="exampleInputPassword2" placeholder="Name">
+  </div>
+    <input type="hidden" name="form_type" value="consign">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter3" tabindex="-3" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle3"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form method="POST" id="issuing"  data-persist="garlic">
+  {% csrf_token %}
+  {{issues|crispy}}
+
+    <input type="hidden" name="form_type" value="issuing">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle4"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form method="POST" id="accounts"  data-persist="garlic">
+  {% csrf_token %}
+  {{accounts|crispy}}
+      <input type="hidden" name="form_type" value="accounts">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle5"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form method="POST"  data-persist="garlic">
+  {% csrf_token %}
+  {{airport_departure|crispy}}
+
+    <input type="hidden" name="form_type" value="airport_dept">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter6" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle6"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form method="POST" id="airport_dest" data-persist="garlic">
+  {% csrf_token %}
+  {{airport_destination|crispy}}
+    <input type="hidden" name="form_type" value="airport_dest">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- Modal -->
+
+  <div class="modal fade" id="exampleModalCenterH" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form method="POST" id="handling_info" data-persist="garlic">
+  {% csrf_token %}
+  {{handling|crispy}}
+        <input type="hidden" name="form_type" value="handling_info">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter7" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle7"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form method="POST" id="nature" data-persist="garlic">
+
+  {% csrf_token %}
+  {{nature|crispy}}
+        <input type="hidden" name="form_type" value="nature">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+  <script>
+
+
+  </script>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter8" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle8"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form id = "currency" data-persist="garlic" method="POST">
+  {% csrf_token %}
+  {{currency|crispy}}
+        <input type="hidden" name="form_type" value="currency">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter9" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle9"></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body">
+  <form  data-persist="garlic" id="optional"  method="POST" >
+  {% csrf_token %}
+  {{optional|crispy}}
+        <input type="hidden" name="form_type" value="optional">
+  <button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+  <button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+  </form>
+  </div>
+
+  </div>
+  </div>
+  </div>
+  <!-- Modal -->
+  </div>
+
+
+  {% endblock %}

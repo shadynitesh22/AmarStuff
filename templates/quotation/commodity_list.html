@@ -1,0 +1,137 @@
+{% extends 'system/base.html' %} {% block content %}
+
+<body>
+
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class="contain">
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <div class="page-body">
+                        {% include 'system/messages.html' %}
+
+                        <div class="card" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="card-block caption-breadcrumb">
+                                <div class="breadcrumb-header">
+                                    <h5 class="font-weight-bold mb-3">Commodity List <i class="fa fa-list" aria-hidden="true"></i></h5>
+                                    <span style="opacity: 0.6;">Once the commodity is added, it gets
+                                        listed down below</span>
+                                </div>
+                                <div class="page-header-breadcrumb">
+                                    <ul class="breadcrumb-title">
+                                        <li class="breadcrumb-item">
+                                            <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top"
+                                            title="Go to Homepage"> <i
+                                                    class="feather icon-home"></i> </a>
+                                        </li>
+                                        <li class="breadcrumb-item"><a href="">Manage Commodity</a>
+                                        </li>
+                                        <li class="breadcrumb-item"><a href="{% url 'create_commodity' %}">Add Commodity</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                             
+                            </div>
+                            <div class="card-header">
+                                <div class="card-block">
+                                    <div class="col">
+
+
+
+                                           
+
+                                        </div>
+                                        <div class="dt-responsive table-responsive">
+                                            <table id="simpletable" class="table table-striped table-bordered nowrap">
+                                                <thead>
+                                                    <tr>
+
+
+                                                        <th scope="col">Name</th>
+
+                                                        <th scope="col">Description</th>
+
+                                                        <th scope="col">Type</th>
+
+                                                        <th scope="col">Edit</th>
+                                                        <th scope="col">Delete</th>
+
+
+
+                                                    </tr>
+                                                </thead>
+
+                                                <tr>
+                                                    {% for quotation in commodity %}
+
+
+                                                    <td>{{quotation.commodity_name}}</td>
+
+                                                    <td>{{quotation.commodity_description}}</td>
+
+                                                    <td>{{quotation.commodity_type}}</td>
+
+                                                    <td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="{% url 'update_commodity' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>
+                                                    <td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_commodity' quotation.id %}" class=""><i class="fas fa-trash openBtn"></i></a></td>
+
+                                                    </tr>
+
+                                                        {% endfor%}
+
+
+                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+        {% endblock %}

@@ -1,0 +1,282 @@
+{% extends 'system/base.html' %} {% block content %} {% load widget_tweaks %} {% load crispy_forms_tags %} {% load static %}
+
+
+
+<body>
+
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class="contain">
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+                <div class="page-wrapper">
+
+
+
+                    <div class="page-body ">
+
+
+
+
+                        <div class="row  ">
+
+
+
+
+                            <div class="card-block caption-breadcrumb">
+                                <div class="breadcrumb-header">
+                                    <h4 class="font-weight-bold mb-3">User Form</h4>
+                                    <span>Add your user form, it will be listed in the users list</span>
+                                </div>
+                                {% include 'system/form_errors.html'%}
+                                <div class="page-header-breadcrumb">
+                                    <ul class="breadcrumb-title">
+                                        <li class="breadcrumb-item">
+                                            <a href="{% url 'dashboard' %}"> <i class="feather icon-home"></i> </a>
+                                        </li>
+                                        <li class="breadcrumb-item"><a href="">Manage User</a>
+                                        </li>
+                                        <li class="breadcrumb-item"><a href="">Add User</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <h3 class=" text-center text-white mb-3">Quotation Form</h3>
+
+
+
+
+
+                            <div class="card-block">
+
+
+
+
+                                {% for hidden_field in form.hidden_fields %} {{ hidden_field }} {% endfor %}
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                {% extends 'system/base.html' %} {% block content %} {% load widget_tweaks %} {% load crispy_forms_tags %} {% load static %}
+
+
+
+                                                <body>
+
+                                                    <!-- Pre-loader start -->
+                                                    <div class="theme-loader">
+                                                        <div class="ball-scale">
+                                                            <div class="contain">
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                                <div class="ring">
+                                                                    <div class="frame"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="pcoded-content">
+                                                        <div class="pcoded-inner-content">
+                                                            <div class="main-body">
+                                                                <div class="page-wrapper">
+
+
+
+                                                                    <div class="page-body ">
+
+
+
+
+                                                                        <div class="row  ">
+
+
+
+
+                                                                            <div class="card-block caption-breadcrumb">
+                                                                                <div class="breadcrumb-header">
+                                                                                    <h4 class="font-weight-bold mb-3">Work of Scope Form</h4>
+                                                                                    <span>Add your work of scope, it will be listed down below</span>
+                                                                                </div>
+                                                                                {% include 'system/form_errors.html'%}
+                                                                                <div class="page-header-breadcrumb">
+                                                                                    <ul class="breadcrumb-title">
+                                                                                        <li class="breadcrumb-item">
+                                                                                            <a href="{% url 'dashboard' %}"> <i class="feather icon-home"></i> </a>
+                                                                                        </li>
+                                                                                        <li class="breadcrumb-item"><a href="">Manage Work of Scope</a>
+                                                                                        </li>
+                                                                                        <li class="breadcrumb-item"><a href="">Add Work of Scope</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <h3 class=" text-center text-white mb-3">Quotation Form</h3>
+
+
+
+
+
+                                                                            <div class="card-block">
+
+
+
+
+                                                                                {% for hidden_field in form.hidden_fields %} {{ hidden_field }} {% endfor %}
+                                                                                <form action="" method="POST">
+                                                                                    {% csrf_token %}
+                                                                                    <div class="container">
+                                                                                        <div class="row">
+                                                                                            <div class="col">
+                                                                                                {{form.work_of_scope|crispy}}
+                                                                                            </div>
+
+
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                    <div class="col-sm-7">
+
+                                                                                        {% if field.help_text %}
+                                                                                        <small class="form-text text-muted">{{ field.help_text }}</small> {% endif %}
+                                                                                    </div>
+
+
+
+
+
+
+
+
+
+                                                                                    <br>
+
+                                                                                    <div class="d-flex justify-content-center">
+
+                                                                                        <button type="submit" style="background-color:#353c4e" class="btn btn-primary"><i class="fas fa-step-forward"></i>Continue</button>
+                                                                                    </div>
+
+
+
+
+                                                                                </form>
+
+
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                </body>
+                                                {% endblock %}
+
+                                                </div>
+
+
+                                                </div>
+                                                </div>
+
+                                                <div class="col-sm-7">
+
+                                                    {% if field.help_text %}
+                                                    <small class="form-text text-muted">{{ field.help_text }}</small> {% endif %}
+                                                </div>
+
+
+
+
+
+
+
+
+
+                                                <br>
+
+                                                <div class="d-flex justify-content-center">
+
+                                                    <button type="submit" style="background-color:#353c4e" class="btn btn-primary"><i class="fas fa-step-forward"></i>Continue</button>
+                                                </div>
+
+
+
+
+                                </form>
+
+
+                                </div>
+                                </div>
+
+
+
+</body>
+{% endblock %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

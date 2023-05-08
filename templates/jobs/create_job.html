@@ -1,0 +1,106 @@
+{% extends 'system/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class="contain">
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+
+                    <div class="row " data-aos="fade-up" data-aos-duration="1000">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div class="card" style="width: 1000px;">
+                                <div class="card-block">
+                                    <div class="d-flex justify-content-center">
+                                        {% include 'system/form_errors.html'%}
+
+                                        <div class="row  ">
+                                            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                                                <div class="card" style="width: 1000px;">
+                                                    <div class="card-block caption-breadcrumb">
+                                                        <div class="breadcrumb-header">
+                                                            <h5 class="font-weight-bold mb-4">Add Quotation Type</h5>
+                                                            <span>Once the type of quotation is added, it gets listed in the quotation type list</span>
+                                                        </div>
+                                                        <div class="page-header-breadcrumb">
+                                                            <ul class="breadcrumb-title">
+                                                                <li class="breadcrumb-item">
+                                                                    <a href=""> <i class="feather icon-home"></i> </a>
+                                                                </li>
+                                                                <li class="breadcrumb-item"><a href="">Manage Quotation List</a>
+                                                                </li>
+                                                                <li class="breadcrumb-item"><a href="">Quotation Type List</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="d-flex justify-content-center">
+
+<form action="" method="POST">
+				{% csrf_token %}
+				{{ form.management_form }}
+				{% for field in form %}
+					{{field|crispy}}
+					<hr>
+				{% endfor %}
+
+				<input type="submit" name="Submit">
+			</form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

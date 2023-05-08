@@ -1,0 +1,178 @@
+{% extends 'system/base.html' %}
+{% block content %}
+
+<body>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+
+{% include 'system/links.html' %}
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-header">
+
+<div class="row">
+
+<div class="card">
+<div class="card-header">
+<div class="page-header">
+<div class="row align-items-end">
+<div class="col-lg-8">
+<div class="page-header-title">
+<div class="d-inline">
+<h4>User List</h4>
+<span style="opacity: 0.9;">Users list is where u can view the list once a user is added</span>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %}"> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage User</a>
+</li>
+<li class="breadcrumb-item"><a href="">User List</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+<div class="card-block">
+
+<div class="col">
+
+<div class="d-flex">
+
+<div class="d-flex justify-content-end">
+
+
+
+<form action="{% url 'search'%} " class="form-inline" method="get">
+<div class="form-group mx-sm-3 mb-2">
+<label for="" class="sr-only">search</label>
+<input name="search" type="" class="form-control" id="" placeholder="Keyword">
+<button class="btn btn-sm ml-2 " type="submit"> <i class="fas fa-search">  Search</i></button>
+</div>
+
+</form>
+
+</div>
+<div class="d-flex jusztify-content-start">
+<a href="{% url 'user' %}" style="height: 34px; width: 110px;" class="btn btn-success">
+<i class="feather icon-plus-circle"> Add User</i></a>
+</div>
+</div>
+</div>
+<div class="dt-responsive table-responsive">
+<table id="simpletable" class="table table-striped table-bordered nowrap">
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Username</th>
+<th scope="col">Email</th>
+<th scope="col">Roles</th>
+<th scope="col">Edit</th>
+<th scope="col">Delete</th>
+
+
+
+</tr>
+</thead>
+
+<tr>
+
+{% if query %}
+
+<h5 class="card-title text-success ">
+
+{% with results.count as total_results %}
+
+Found {{ total_results }} result{{ total_results|pluralize }}<i class="feather icon-book"></i>
+<a href="{% url 'user_list' %}">
+<i class="feather icon-refresh-ccw"></i>
+</a>
+
+{% endwith %}
+</h5>
+    <br>
+{% for user in results %}
+<th >User</th>
+<td>{{user.username}}</td>
+<td>{{user.email}}</td>
+<td>{{user.roles}}</td>
+
+<td><a href="{% url 'update_user' user.id %}" class="btn btn-dark">Edit</a></td>
+<td><a href="{% url 'delete_user' user.id %}" class="btn btn-danger">Delete</a></td>
+
+
+
+</tr>
+{% empty %}
+
+<br>
+<h6 class="card-title text-warning ">
+No results were found !! Change your search criteria
+</h6>
+    <br>
+
+{% endfor %}
+
+{% endif %}
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,148 @@
+                {% load static%} {% include 'system/links.html'%} {% include 'system/navbar.html' %}
+
+
+                <body>
+
+                <!-- Pre-loader start -->
+                <div class="theme-loader">
+                <div class="ball-scale">
+                <div class="contain">
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                <div class="ring">
+                <div class="frame"></div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                <div class="main-body">
+                <div class="page-wrapper">
+                <div class="page-body">
+                <div class="row">
+
+                <!-- task, page, download counter  start -->
+                <div class="card">
+                <div class="card-header">
+                <div class="page-header">
+                <div class="row align-items-end">
+
+                <div class="col-lg-8">
+                <div class="page-header-title">
+                <div class="d-inline">
+                <h4>Roles List</h4>
+                <span style="opacity: 0.9;">Roles added are illustrated here. </span>
+                </div>
+                {% include 'system/messages.html' %}
+                </div>
+                </div>
+                <div class="col-lg-4">
+                <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                <li data-toggle="tooltip" data-placement="top" title="Takes you home" class="breadcrumb-item">
+                <a href="{% url 'dashboard' %}"> <i class="feather icon-home"></i> </a>
+                </li>
+                <li class="breadcrumb-item"><a href="">Manage User</a>
+                </li>
+                <li  class="breadcrumb-item"><a href="{% url 'roles' %}">Add Roles</a>
+                </li>
+                </ul>
+                </div>
+                </div>
+
+
+
+                </div>
+
+                </div>
+<br>
+
+                <!-- <div class="d-flex justify-content-end" style="margin-right:30px;">
+                <a href="{% url 'roles' %}" style="height: 36px; width: 120px; " class="btn btn-success">
+                <i class="feather icon-plus-circle mr-2" data-toggle="tooltip" data-placement="top" title="Go to Add Roles"> Add Roles </i></a>
+                </div> -->
+
+                <div class="card-block">
+               <div class="col">
+                <div class="dt-responsive table-responsive">
+                <table id="simpletable" class="table table-striped table-bordered nowrap">
+
+                <thead>
+                <tr>
+
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Roles Name are illustrated here">Name <i class="feather icon-user"></i></th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Permissions Name are illustrated here">Permissions <i class="feather icon-file"></i></th>
+
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Edit Roles below">Edit <i class="fas fa-edit"></i></th>
+                <th scope="col" data-toggle="tooltip" data-placement="top" title="Delete Roles below">Delete <i class="fas fa-trash"></i></th>
+
+
+
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                <tr>
+                {% for roles in roles %}
+
+                <td>{{roles.name}}</td>
+
+                <td>{% for area in roles.permissions.all %}{{ area.name }}<br/>{% endfor %}</td>
+
+
+                <td data-toggle="tooltip" data-placement="left" title="Edit roles by clicking the icon"><a href="{% url 'update_roles' roles.id %}" class=" hvr-pulse"><i class="fas fa-edit"></i></a></td>
+                <td data-toggle="tooltip" data-placement="left" title="Delete roles by clicking the icon"><a href="{% url 'delete_roles' roles.id %}" class=" hvr-pulse"><i class="fas fa-trash"></i></a></td>
+
+
+                </tr>
+                {% endfor%}
+
+
+                </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+                <!--   <script src="{% static 'libraries\assets\pages\data-table\js\data-table-custom.js' %}"></script>-->
+
+                <!--<script src="{% static 'libraries\assets\js\pcoded.min.js' %"></script>-->
+                <!--<script src="{% static 'libraries\assets\js\vartical-layout.min.js' %}"></script>-->
+                <!--<script src="{% static 'libraries\assets\js\jquery.mCustomScrollbar.concat.min.js' %}"></script>-->
+                <!--<script quotation_type="text/javascript" src="{% static 'libraries\assets\js\script.js' %}"></script>-->
+
+                {% include 'system/scripts.html'%}

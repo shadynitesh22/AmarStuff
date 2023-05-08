@@ -1,0 +1,435 @@
+{% extends 'system/base.html' %} {% block content %} {% load static %}
+
+{% include 'system/messages.html' %}
+
+
+
+    <body>
+
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+    <div class="ball-scale">
+    <div class="contain">
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    <div class="ring">
+    <div class="frame"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- Pre-loader end -->
+
+    <div class="pcoded-content">
+    <div class="pcoded-inner-content">
+    <div class="main-body">
+    <div class="page-wrapper">
+    <div class="page-body">
+
+    <div class="row"data-aos="fade-down" data-aos-duration="2000">
+
+    <!-- task, page, download counter  start -->
+
+
+
+    <div class="col-xl-3 col-md-6">
+    <div class="card hvr-grow">
+    <div class="card-block">
+    <div class="row align-items-center">
+    <div class="col-8">
+    <h4 class="text-c-yellow f-w-600">{{user_count}}</h4>
+    <h6 class="text-muted m-b-0">Total Users Created </h6>
+    </div>
+    <div class="col-4 text-right">
+    <i class="feather icon-file-text f-28"></i>
+    </div>
+    </div>
+    </div>
+    <div class="card-footer bg-c-yellow">
+    <div class="row align-items-center">
+    <div class="col-9">
+    <a href="{% url 'user' %}" class="text-white">
+
+    <i class="feather icon-plus-circle"> Add User</i>
+    </a>
+
+
+
+    <!-- <a href="{% url 'roles' %}" style="height: 36px; width: 96px;" class="btn btn-success">Add Roles</a>
+    <a href="{% url 'quotation-create' %}" style="height: 36px; width: 120px;" class="btn btn-success">Add Quotation</a>
+    <a href="{% url 'user' %}" style="height: 36px; width: 96px;" class="btn btn-success">Add User</a> -->
+
+    </div>
+    <div class="col-3 text-right">
+    <i class="feather icon-trending-up text-white f-16"></i>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6">
+    <div class="card hvr-grow">
+    <div class="card-block" style="height: 105px;">
+    <div class="row align-items-center">
+    <div class="col-8">
+    <h4 class="text-c-green f-w-600">{{job_count}}</h4>
+    <h6 class="text-muted m-b-0">Total Jobs Created </h6>
+    </div>
+    <div class="col-4 text-right">
+    <i class="feather icon-file-text f-28"></i>
+    </div>
+    </div>
+    </div>
+    <div class="card-footer bg-c-green" >
+    <div class="row align-items-center">
+    <div class="col-9">
+    <a href="{% url 'job-begin' %}" class="text-white">
+
+    <i class="feather icon-plus-circle"> Add Job</i>
+    </a>
+
+
+
+    <!-- <a href="{% url 'roles' %}" style="height: 36px; width: 96px;" class="btn btn-success">Add Roles</a>
+    <a href="{% url 'quotation-create' %}" style="height: 36px; width: 120px;" class="btn btn-success">Add Quotation</a>
+    <a href="{% url 'user' %}" style="height: 36px; width: 96px;" class="btn btn-success">Add User</a> -->
+
+    </div>
+    <div class="col-3 text-right">
+    <i class="feather icon-trending-up text-white f-16"></i>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-3 col-md-6 ">
+    <div class="card hvr-grow">
+    <div class="card-block">
+    <div class="row align-items-center">
+    <div class="col-8">
+    <h4 class="text-c-pink f-w-600">{{quotation_count}}</h4>
+    <h6 class="text-muted m-b-0">Total Quotation Issued</h6>
+    </div>
+
+    <div class="col-4 text-right">
+    <i class="feather icon-calendar f-28"></i>
+    </div>
+    </div>
+    </div>
+    <div class="card-footer bg-c-pink">
+    <div class="row align-items-center">
+    <div class="col-9">
+    <a href="{% url 'quotation-create' %}" class="text-white">
+
+    <i class="feather icon-plus-circle"> Add Quotation</i>
+    </a>
+    </div>
+    <div class="col-3 text-right">
+    <i class="feather icon-trending-up text-white f-16"></i>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+    <div class="card hvr-grow">
+    <div class="card-block">
+    <div class="row align-items-center">
+    <div class="col-8">
+    <h4 class="text-c-blue f-w-600">{{email_flag}}</h4>
+
+    <h6 class="text-muted m-b-0">Total Quotation Email Sent</h6>
+    </div>
+    <div class="col-4 text-right">
+    <i class="feather icon-download f-28"></i>
+    </div>
+    </div>
+    </div>
+    <div class="card-footer bg-c-blue">
+    <div class="row align-items-center">
+    <div class="col-9">
+
+    </div>
+    <div class="col-3 text-right">
+    <i class="feather icon-trending-up text-white f-16"></i>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!--  sale analytics end -->
+
+    <div class="col-xl-8 col-md-12">
+    <div class="card table-card">
+    <div class="card-header">
+    <h5>Quotation <i class=" fas fa-solid fa-file-invoice"></i></h5>
+    <div class="card-header-right">
+    <ul class="list-unstyled card-option">
+
+    <li>
+    <i class="feather icon-minus minimize-card"></i>
+    </li>
+    <li>
+    <i class="feather icon-trash-2 close-card"></i>
+    </li>
+    </ul>
+    </div>
+    </div>
+
+
+    <div class="card-block align-self-stretch">
+    <div class="table-responsive">
+    <table class="table table-hover table-borderless">
+    <thead>
+    <tr>
+    <th scope="col">Quotation Number <i class=" fas fa-solid fa-hashtag"></i> </th>
+
+
+
+
+    <th scope="col">Payment Terms <i class=" fas fa-solid fa-money-bill"></i></th>
+    <th scope="col">Customer Name <i class="fas fa-solid fa-user"></i></th>
+
+
+    <th scope="col">Send Email  <i class="fas fa-solid fa-envelope"></i> </th>
+
+
+    </tr>
+    </thead>
+
+    <tr>
+    {% for quotation in quotation|slice:"5:" %}
+    <td>{{quotation.quotation_number}}</td>
+
+
+    <td>{{quotation.payment_terms}}</td>
+    <td>{{quotation.customer.customer_name}}</td>
+
+
+    <td><a href="{% url 'email_page' quotation.id %}" class=""><i class="fa fa-paper-plane hvr-grow fa-lg"></i></a></td>
+
+
+    <tr>
+    {% endfor%}
+
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="text-center">
+    <a href="{% url 'quotation_list' %}" class="b-b-primary text-primary hvr-float">View Quotation List</a
+
+    >
+
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    <div class="col-xl-4 col-md-12">
+    <div class="card user-activity-card">
+    <div class="card-header">
+    <div class="row">
+    <div class="col-md-8">
+
+
+    <h5>Active User <i class=" fas fa-solid fa-user-clock"></i> </h5>
+    </div>
+    <div class="col-md-4">
+    <a href="{% url 'detail_user' request.user.id %}" class="feather icon-user hvr-float"> View</a>
+    </div>
+    </div>
+
+
+    </div>
+
+    <div class="card-block">
+
+    <div class="row m-b-25">
+
+    <div class="col-auto p-r-0">
+    <div class="u-img">
+    <img
+    src="{% static 'libraries\assets\images\breadcrumb-bg.jpg' %}"
+    alt="user image"
+    class="img-radius cover-img"
+    />
+    <img
+    src="{% static 'libraries\assets\images\avatar-2.jpg'   %}"
+    alt="user image"
+    class="img-radius profile-img"
+    />
+    </div>
+    </div>
+
+    <div class="col">
+    <h6 class="m-b-5">{{request.user.username}}</h6>
+    <p class="text-muted m-b-0">
+    {{request.user.roles}}.
+    </p>
+    <p class="text-muted m-b-0">
+    <i class="feather icon-clock m-r-10"></i>{{request.user.email}}
+
+    </div>
+
+
+
+    </div>
+
+
+
+    <div class="text-center">
+    <a href="{% url 'user_list'  %}" class="b-b-primary text-primary hvr-float">View all User</a
+    >
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+    </div>
+  
+    <div id="styleSelector"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+    AOS.init();
+    </script>
+
+    <script>
+          'use strict';
+$(window).on('load',function(){
+    //Welcome Message (not for login page)
+    function notify(message, type){
+        $.growl({
+            message: message
+        },{
+            type: type,
+            allow_dismiss: false,
+            label: 'Cancel',
+            className: 'btn-xs btn-inverse',
+            placement: {
+                from: 'bottom',
+                align: 'right'
+            },
+            delay: 2500,
+            animate: {
+                    enter: 'animated fadeInRight',
+                    exit: 'animated fadeOutRight'
+            },
+            offset: {
+                x: 30,
+                y: 30
+            }
+        });
+    };
+
+
+        notify('Welcome to SFL App', 'inverse');
+
+});
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 10]>
+    <div class="ie-warning">
+    <h1>Warning!!</h1>
+    <p>
+    You are using an outdated version of Internet Explorer, please upgrade
+    <br />to any of the following web browsers to access this website.
+    </p>
+    <div class="iew-container">
+    <ul class="iew-download">
+    <li>
+    <a href="http://www.google.com/chrome/">
+    <img
+    src="../files/assets/images/browser/chrome.png"
+    alt="Chrome"
+    />
+    <div>Chrome</div>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.mozilla.org/en-US/firefox/new/">
+    <img src="../files/assets/images/browser/firefox.png" alt="Firefox" />
+    <div>Firefox</div>
+    </a>
+    </li>
+    <li>
+    <a href="http://www.opera.com">
+    <img src="../files/assets/images/browser/opera.png" alt="Opera" />
+    <div>Opera</div>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.apple.com/safari/">
+    <img src="../files/assets/images/browser/safari.png" alt="Safari" />
+    <div>Safari</div>
+    </a>
+    </li>
+    <li>
+    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+    <img src="../files/assets/images/browser/ie.png" alt="" />
+    <div>IE (9 & above)</div>
+    </a>
+    </li>
+    </ul>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+    </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+
+    {%  endblock %}
+    </body>

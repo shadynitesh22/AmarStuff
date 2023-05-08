@@ -1,0 +1,119 @@
+{% extends 'system/base.html' %} {% block content %}
+
+<body>
+
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+
+<div class="card" data-aos="fade-up" data-aos-duration="1000">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header">
+<h5 class="font-weight-bold mb-3">Quotation Type List <i class="fas fa-list"></i></h5>
+<span style="opacity:0.5">Every quotation added in the form gets listed down below</span>
+</div>
+
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top" title="Go to Homepage"> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Quotation Type</a>
+</li>
+<li class="breadcrumb-item"><a href="{% url 'quotation-create_type' %}">Add Quotation Type</a>
+</li>
+</ul>
+</div>
+{% include 'system/messages.html' %}
+</div>
+<div class="card-header">
+      
+<div class="card-block">
+<div class="col">
+
+
+
+<div class="dt-responsive table-responsive">
+
+
+<table id="simpletable" class="table table-striped table-bordered nowrap">
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Quotation Name</th>
+
+<th scope="col">Edit</th>
+<th scope="col">Delete</th>
+
+
+
+</tr>
+</thead>
+<tbody id="myTable">
+
+<tr>
+{% for quotation_list in quotation_list %}
+<th>Quotations</th>
+<td>{{quotation_list.name}}</td>
+
+<td><a href="{% url 'update_quotation_type' quotation_list.id %}" class=" hvr-pulse" data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><i class="fas fa-edit"></i></a></td>
+<td><a href="{% url 'delete_quotation_type' quotation_list.id %}" class=" hvr-pulse" data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon. "><i class="fas fa-trash"></i></a></td>
+
+</tr>
+{% endfor%}
+
+
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,223 @@
+{% extends 'system/base.html'%} {% block content %}
+<!-- Pre-loader start -->
+
+<div class="theme-loader">
+  <div class="ball-scale">
+    <div class="contain">
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+      <div class="ring">
+        <div class="frame"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pcoded-content">
+  <div class="pcoded-inner-content">
+    <div class="main-body">
+      <div class="page-wrapper">
+        <div class="page-body">
+          <div class="card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="card-block caption-breadcrumb">
+              <div class="breadcrumb-header">
+                <h5>Quotation Detail</h5>
+                <span>Every quotation added in the form gets listed down
+                  below</span>
+              </div>
+              {% include 'system/messages.html' %}
+              <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                  <li class="breadcrumb-item">
+                    <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top"
+                    title="Go back to home page"> <i class="feather icon-home"></i> </a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="">Manage Quotation</a>
+                  </li>
+                 
+                </ul>
+              </div>
+            </div>
+            <br />
+            <br />
+            
+              <div class="d-flex justify-content-start">
+
+              
+            <a href="{% url 'quotation_list' %}" style="font-size: 15px; width: 150px;"
+              class="btn text-dark font-weight-bold" data-toggle="tooltip" data-placement="top"
+              title="Go back to quotation list" ><i class="fas fa-arrow-left"></i> Quotation List</a>
+            </div>
+            <div class="d-flex justify-content-end" style="margin-bottom: 30px;">
+              <td><a href="{% url 'update_quotation' quotation.id %}" class=""><i class="fas fa-edit" style="font-size: 20px; margin-right:20px ;" data-toggle="tooltip" data-placement="top" title="Edit Quotation"></i> </i></a></td>
+
+              <td><a href="{% url 'delete_quotation' quotation.id %}" class=""><i class="fas fa-trash" style="font-size: 20px; margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="Delete Quotation"></i></a></td>
+
+              <td><a onclick="printDiv('printableArea')" value="print a div!" target="_blank" ><i class="fas fa-print" style="font-size: 20px; margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="Print Quotation"></i></a></td>
+            </div>
+       
+
+          </div>
+
+<div id="printableArea">
+
+          <div class="card">
+
+            <div class="card-block">
+
+              <div data-v-05b4f093="" data-v-b090a320="" class="py-4">
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+
+
+
+
+
+                    Mode of Transport
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{{quotation.mode_of_transport}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Type of Transport
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.quotation_type}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Airport of Origin
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{{quotation.airport_of_origin}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Airport of Destination
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">
+                    {{quotation.airport_of_destination}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Commodity
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{% for area in quotation.commodity.all %}{{ area.commodity_name }}<br />{% endfor %}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Pieces
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{{quotation.no_of_shipment}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Work of Scope
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{% for area in quotation.work_of_scope.all %}{{ area.name }}<br />{% endfor %}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    AMS Fee
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">
+                    {{quotation.ams_fee}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Routine
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.routine}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Time
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.time}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Date
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.date}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Quotation Payment Terms
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{quotation.payment_terms}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Customer's Name
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{{quotation.customer.customer_name}}
+                  </span>
+                </p>
+                <hr />
+
+              </div>
+            </div>
+          </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

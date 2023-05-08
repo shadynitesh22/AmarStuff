@@ -1,0 +1,138 @@
+{% extends 'system/base.html' %} {% block content %}
+
+<body>
+
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+
+<div class="card" data-aos="fade-up" data-aos-duration="1000">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header">
+<h5>Job Booking List <i class="fa fa-book" aria-hidden="true"></i></h5>
+<span style="opacity: 0.6;">Job Bookings created by users are listed down</span>
+</div>
+
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %} " data-toggle="tooltip" data-placement="top" title="Go to homepage"> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Job Bookings</a>
+</li>
+
+
+</ul>
+</div>
+</div>
+<div class="card-header">
+<div class="card-block">
+<div class="col">
+
+
+
+{% include 'system/messages.html' %}
+
+
+
+<div class="dt-responsive table-responsive" >
+
+<table id="simpletable" class="table table-striped table-bordered nowrap ">
+
+<thead>
+<tr>
+<th scope="col">Job Number <i class="feather icon-hash"></i> </th>
+<th scope="col">Status <i class="feather icon-help-circle"></i></th>
+<th  scope="col">Email <i class="feather icon-mail"></i></th>
+<th  scope="col">Edit <i class="fas fa-edit"></i></th>
+<th  scope="col">Delete <i class="fas fa-trash"></i></th>
+
+  {% if  quotation.jobs.status == 'Job Booking Email Sent' %}
+<th data-toggle="tooltip" data-placement="top" title="Job Numbers are illustrated here" scope="col">Create AirwayBill <i class="feather icon-mail"></i></th>
+{% else  %}
+  <th data-toggle="tooltip" data-placement="top" title="Job Numbers are illustrated here" scope="col">Send Email <i class="feather icon-mail"></i></th>
+  {% endif %}
+</tr>
+</thead>
+<tbody>
+<tr>
+{% for quotation in bookings_list %}
+<td>{{quotation.jobs}}</td>
+<td>{{quotation.jobs.status}}</td>
+<td>{{quotation.email}}</td>
+{% if  quotation.jobs.status == 'Job Booking Email Sent' %}
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>
+  <td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'documentation-form' quotation.id %}" class=""><i class="fas fa-plus"></i></a></td>
+
+{% else  %}
+
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon"><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon. "><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Send booking email by clicking this icon."><a href="{% url 'email_page_book' quotation.id %}" class=""><i class="fas fa-paper-plane"></i></a></td>
+
+{% endif %}
+</tr>
+{% endfor%}
+
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}

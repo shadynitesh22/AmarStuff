@@ -1,0 +1,359 @@
+{% extends 'system/base.html' %}
+
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<body>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+
+<script src="{% url 'js-catlog' %}"></script>
+<script src="{% static '/admin/js/core.js' %}"></script>
+<link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+<link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+
+
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+<div class="row " data-aos="fade-up" data-aos-duration="1000">
+
+<div class="card" style="">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header">
+
+
+<h1 class="font-weight-bold mb-3">Quotation Form <i class="feather icon-box hvr-pulse"></i></h1>
+<span style="opacity:0.5;">Add your quotation form, it will be listed in the quotation list </div>
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li style="color: aliceblue;" class="breadcrumb-item">
+<a href="{% url 'dashboard' %}"> <i class="feather icon-home"data-toggle="tooltip" data-placement="top" title="Go to Homepage"></i> </a>
+</li>
+<div class="breadcrumb-item"><a href="">Manage Quotation</a>
+</div>
+<div class="breadcrumb-item"><a href="{% url 'quotation_list' %}">Quotation List</a>
+</div>
+</ul>
+</div>
+</div>
+<h1 class="text-uppercase text-center text-white mb-5"></h1>
+
+
+
+
+
+<form action="" method="POST">
+{% csrf_token %}
+{{ form.media }}
+
+
+
+
+<div class="form-row"  >
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Customers">
+Customer <i data-toggle="modal" data-target="#exampleModalCenter1" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Customer"></i> {% render_field form.customer id="customer"  class="js-example-basic-single" %}
+</div>
+
+
+
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Mode of Transport" style="margin-left:80px;">
+Mode of Transport <i class="fa fa-car" aria-hidden="true"></i> {% render_field form.mode_of_transport class="js-example-basic-single"  %}
+</div>
+
+</div>
+
+
+
+<br />
+<div class="form-row">
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Quotation Type">
+Quotation Type <i class="fa fa-list" aria-hidden="true"></i> {% render_field form.quotation_type  class="js-example-basic-single" style="height:37px"  %}
+</div>
+
+<div class="col" data-toggle="tooltip" data-placement="left" title="Enter Airport of Origin" style="margin-left:80px;">
+Airport of Origin <i class="fa fa-plane" aria-hidden="true"></i>{% render_field form.airport_of_origin class="form-control col-md-10" style="height:37px" placeholder="Enter Airport of origin " %}
+</div>
+
+</div>
+<br />
+<div class="form-row">
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Airport of Destination">
+    Airport Destination <i class="fa fa-plane" aria-hidden="true"></i> {% render_field form.airport_of_destination  class="form-control" placeholder="Enter airport of destination" style="height:37px"  %}
+</div>
+
+<div class="col" data-toggle="tooltip" data-placement="left" title="Enter No. of Pieces" style="margin-left:80px;">
+Pieces <i class="fa fa-list" aria-hidden="true"></i>{% render_field form.no_of_shipment class="form-control col-md-10" style="height:37px" type="number" placeholder="Enter number of pieces" %}
+</div>
+
+</div>
+
+
+
+<br />
+
+<div class="form-row">
+    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Enter Weight in KG">
+        Weight of Shipment <i class="fa fa-weight" aria-hidden="true"></i> {% render_field form.weights_of_shipment  class="form-control" placeholder="Enter Weight of Shipment" type="number" style="height:37px"  %}
+    </div>
+    
+    <div class="col" data-toggle="tooltip" data-placement="left" title="Enter AMS Fee" style="margin-left:80px;">
+     AMS Fee <i class="fa fa-envelope" aria-hidden="true"></i>{% render_field form.ams_fee class="form-control col-md-10" style="height:37px" placeholder="Enter AMS fee" %}
+    </div>
+    
+    </div>
+
+
+
+<br />
+<div class="form-row">
+    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Quotation Routine">
+        Quotation Routine <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.routine  class="form-control" placeholder="Enter Quotation Routine" style="height:37px"  %}
+    </div>
+    
+    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Payments Terms" style="margin-left:80px;">
+     Payment Terms <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.payment_terms class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}
+    </div>
+    
+    </div>
+
+
+
+<br />
+<div class="form-row">
+    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Select Time">
+       Time <i class="fa fa-clock" aria-hidden="true"></i> {% render_field form.time  class="form-control" type="time" style="height:37px"  %}
+    </div>
+    
+    <div class="col" data-toggle="tooltip" data-placement="left" title="Select Date" style="margin-left:80px;">
+    Date <i class="fa fa-calendar" aria-hidden="true"></i>{% render_field form.date class="form-control col-md-10" type="date" style="height:37px" placeholder="Enter payment terms" %}
+    </div>
+    
+    </div>
+
+
+
+
+
+<br />
+
+<div class="form-row">
+    <div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Charges">
+        Charges <i class="fa fa-calendar" aria-hidden="true"></i> {% render_field form.charges  class="form-control" placeholder="Enter Charges" type="number" style="height:37px"  %}
+    </div>
+    
+    <div class="col" data-toggle="tooltip" data-placement="left" title="Add Custom Clearance" style="margin-left:80px;">
+     Customer Clearance <i class="fa fa-credit-card" aria-hidden="true"></i>{% render_field form.custom_clearance class="form-control col-md-10" style="height:37px" placeholder="Enter payment terms" %}
+    </div>
+    
+</div>
+
+<br>
+<div class="form-row">
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Commodities">
+    Commodity <i  data-toggle="modal" data-target="#exampleModalCenter2" class="feather icon-plus-circle" data-toggle="tooltip" data-placement="top" title="Add Commodity"></i>
+    {% render_field form.commodity class="js-example-basic-multiple"  multiple="multiple" style="height:37px"  %}
+</div>
+
+
+
+
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Work of Scope" style="left:83px;">
+    Work of Scope <i data-toggle="modal" data-target="#exampleModalCenter" class="feather icon-plus-circle"></i>
+{% render_field form.work_of_scope class="js-example-basic-multiple "  multiple="multiple" style="margin-left:20px;" style="height:37px"  %}
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+<br>
+
+
+<div class="form-row">
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add Quotation Carrier">
+Quotation Carrier <i class="fa fa-truck" aria-hidden="true"></i> {% render_field form.carrier class="form-control" style="height:37px" placeholder="Input Carrier " %}
+</div>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+<div class="d-flex justify-content-center">
+
+<button type="submit" style="background-color:#353c4e;margin:10px;" class="btn btn-primary hvr-pulse btn btn-default waves-effect"><i class="fas fa-step-forward" data-toggle="tooltip" data-placement="top" title="Summit Form"></i>Continue</button>
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+</form>
+
+
+</div>
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle">Add Work of Scope</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form method="POST">
+{% csrf_token %}
+{{scope|crispy}}
+<button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle1">Add Customers </h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<form method="POST">
+{% csrf_token %} {{customers|crispy}}
+<button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary hvr-pulse">Save changes</button>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLongTitle2">Add Commodity </h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+      <div class="message">
+<div class="modal-body">
+<form method="POST"  >
+{% csrf_token %}
+
+<div class="form-row">
+<div class="col-md-5" data-toggle="tooltip" data-placement="left" title="Add and Select Commodities">
+{{commodity|crispy}}
+</div>
+</div>
+
+<button type="button" class="btn btn-secondary hvr-pulse" data-dismiss="modal">Close</button>
+<button type="submit"  class="btn btn-primary hvr-pulse" onclick=post_comment()>Save changes</button>
+</form>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+<script>
+
+
+$('#form').submit(function(e){
+    $.post('/quotation-create/', $(this).serialize(), function(data){ ...
+       $('.message').html(data.commodity_name,data.commodity_desc,data.type);
+
+    });
+    e.preventDefault();
+});
+
+
+</script>
+
+
+
+
+{% endblock %}
+</div>
+</div>
+</div>
+</div>
+</div>

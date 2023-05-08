@@ -1,0 +1,144 @@
+{% extends 'system/base.html' %} {% block content %} {% load widget_tweaks %} {% load crispy_forms_tags %} {% load static %}
+
+
+
+
+
+
+<body>
+
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class="contain">
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+
+                <div class="page-wrapper">
+                    <div class="page-body ">
+
+
+
+
+                        <div class="row  ">
+                            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                                <div class="card" style="width: 1000px;">
+                                    <div class="card-block caption-breadcrumb">
+                                        <div class="breadcrumb-header">
+                                            <h5 class="font-weight-bold mb-3">Update Roles <i
+                                                    class="feather icon-users"></i></h5>
+                                            <span style="opacity:0.6">Please update the role </span>
+                                        </div>
+                                        <div class="page-header-breadcrumb">
+                                            <ul class="breadcrumb-title">
+                                                <li class="breadcrumb-item">
+                                                    <a href="{% url 'dashboard' %}" data-toggle="tooltip"
+                                                        data-placement="top" title="Go to homepage"> <i
+                                                            class="feather icon-home"></i> </a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a href="">Manage User
+                                                    </a>
+                                                </li>
+                                                <li class="breadcrumb-item"><a href="">Update Roles
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <h2 class="text-uppercase text-center mb-5"></h2>
+
+                                    {% include 'system/form_errors.html' %} {% for hidden_field in form.hidden_fields %} {{ hidden_field }} {% endfor %}
+                                    <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <div class="container">
+                                            <div class="row">
+
+                                                <div class="col">
+                                                        <label class="col-md-2 col-form-label" data-toggle="tooltip" data-placement="top" title="Write a role name">Role Name <i class="feather icon-users"></i></label>
+                                                    <div class="col-sm-8 col-lg-10" data-toggle="tooltip"
+                                                    data-placement="top" title="Write a role name">
+                                                        <div class="input-group">
+
+                                                             {% render_field form.name class="form-control" placeholder="Write a role name" %}
+                                                        </div>
+                                                    </div>
+                                                        <div class="row">
+ <label class="col-md-2 col-form-label" data-toggle="tooltip" data-placement="top" title="Select many permissions" style="margin-left:12px;"> Permission List <i class="feather icon-shield"></i> </label>
+                                                                <div class="col-sm-12">
+                                                        <div class="input-group  col-lg-10" style="margin-right:42px;">
+
+                                                            {% render_field form.permissions class="js-example-basic-multiple"  multiple="multiple" required="True" style="height:37px" %}
+                                            </div>
+                                                                </div>        </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+
+
+                                        <div class="col-sm-7">
+
+                                       <br>
+
+                                        <div class="d-flex justify-content-end">
+
+                                            <button type="submit" class="btn btn-primary hvr-pulse" style="background-color:#353c4e"><i class="fas fa-step-forward"></i>Continue</button>
+                                        </div>
+
+
+
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+</body>
+{% endblock %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

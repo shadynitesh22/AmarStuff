@@ -1,0 +1,209 @@
+{% extends 'system/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+<body>
+<!-- Pre-loader start -->
+<div class="theme-loader">
+<div class="ball-scale">
+<div class="contain">
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+<div class="ring">
+<div class="frame"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+// Self-executing function
+(function() {
+'use strict';
+window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+var forms = document.getElementsByClassName('needs-validation');
+// Loop over them and prevent submission
+var validation = Array.prototype.filter.call(forms, function(form) {
+form.addEventListener('submit', function(event) {
+if (form.checkValidity() === false) {
+event.preventDefault();
+event.stopPropagation();
+}
+form.classList.add('was-validated');
+}, false);
+});
+}, false);
+})();
+</script>
+</body>
+<div class="pcoded-content">
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+<div class="row  " data-aos="fade-up" data-aos-duration="1000">
+<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+<div class="card" style="width: 1000px;">
+
+<div class="d-flex justify-content-center">
+<div class="row  ">
+<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+<div class="card" style="width: 1000px;">
+<div class="card-block caption-breadcrumb">
+<div class="breadcrumb-header">
+<h5 class="font-weight-bold mb-3">Update Job <i class="fa fa-tasks" aria-hidden="true"></i></h5>
+<span style="opacity: 0.6;">Once the Job is Updated, it gets listed in the job list</span>
+</div>
+<div class="page-header-breadcrumb">
+<ul class="breadcrumb-title">
+<li class="breadcrumb-item">
+<a href="{% url 'dashboard' %} "data-toggle="tooltip" data-placement="top" title="Go to you to homepage"> <i class="feather icon-home"></i> </a>
+</li>
+<li class="breadcrumb-item"><a href="">Manage Job </a>
+</li>
+<li class="breadcrumb-item"><a href="">Update Job</a>
+</li>
+</ul>
+</div>
+</div>
+<h1 class="text-uppercase text-center text-white mb-5"></h1>
+<div class="d-flex justify-content-center">
+<form action="" method="POST" class="row g-3">
+{% csrf_token %}
+<div class="form-row" style="margin:3px;">
+  <div class="col  p-3" data-toggle="tooltip" data-placement="bottom" title="Select Quotation"style="">
+
+Quotation <i class="feather icon-box hvr-pulse" ></i>
+ {% render_field form.quotation class="js-example-basic-single" %}
+
+</div>
+  </div>
+ <div class="form-row">
+        <div class="col-md-5" style="left:25px;"data-toggle="tooltip" data-placement="top" title="Type Consign Address">
+Consign Address <i class="fas fa-address-card"></i>
+
+<br />
+ {% render_field form.consign_address class="form-control" placeholder="Enter Consign Address" %}
+
+<!--    {{form.commodities}}-->
+</div>
+
+  <div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Type No of Pieces" style="left:135px;">
+Pieces <i class="fa fa-archive" aria-hidden="true"></i>
+
+<br />
+ {% render_field form.Piece class="form-control" placeholder="Enter no. of Pieces" %}
+</div>
+        </div>
+
+
+
+
+
+<div class="form-row">
+  <div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Type total weight in kg" style="left:25px;">
+Weight <i class="fa fa-weight" aria-hidden="true"></i>
+
+<br />
+ {% render_field form.weight class="form-control" placeholder="Enter Weight in KG" %}
+  </div>
+
+  <div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Type Shippers Address" style="left:135px;">
+Shippers Address <i class="fas fa-address-card"></i>
+
+<br />
+ {% render_field form.shippers_address class="form-control" placeholder="Enter Shippers Address" %}
+
+  </div>
+
+</div>
+    <br />
+
+<div class="form-row" >
+  <div class="col-md-5"  data-toggle="tooltip" data-placement="bottom" title="Select Commodity" style="left:25px;">
+Commodity <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+<br />
+ {% render_field form.commodities class="js-example-basic-multiple bg-dark" multiple="multiple" %}
+
+<!--    {{form.commodities}}-->
+</div>
+
+  <div class="col-md-5"  data-toggle="tooltip" data-placement="bottom" title="Select Work of Scope" style="left:135px;">
+ Work of Scope <i class="fa fa-crosshairs" aria-hidden="true"></i>
+{% render_field form.work_of_scope class="js-example-basic-multiple col-sm-5 form-control"  multiple="multiple"  %}
+
+
+</div>
+
+</div>
+    <div class="form-row">
+        <div class="col-md-5" data-toggle="tooltip" data-placement="right" title="Type dimensions like: H*W*B*P" style="left:25px;">
+Dimension <i class="fa fa-desktop fa-md "></i>
+
+<br />
+               <div class="form-row">
+ {% render_field form.dimension_height class="form-control col-md-3" placeholder="H" %}{% render_field form.dimension_weight class="form-control col-md-3" placeholder="W" %}{% render_field form.dimension_breadth class="form-control col-md-3" placeholder="B" %}{% render_field form.dimension_pieces class="form-control col-md-3" placeholder="P" %}
+
+<!--    {{form.commodities}}-->
+
+</div>
+
+        </div>
+                             <div class="col-md-5"  data-toggle="tooltip" data-placement="bottom" title="Change Job Status" style="left:135px;">
+ Status <i class="feather icon-help-circle" aria-hidden="true"></i>
+{% render_field form.status class="js-example-basic-multiple col-sm-5 form-control"    %}
+
+
+</div>
+
+    </div>
+  <br/>
+        <br/>
+<div class="d-flex justify-content-center">
+<button type="submit" style="background-color:#353c4e;margin:10px;" class="btn btn-primary hvr-pulse"><i class="fas fa-step-forward"></i>Continue</button>
+</div>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

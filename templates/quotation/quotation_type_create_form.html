@@ -1,0 +1,136 @@
+{% extends 'system/base.html' %} {% block content %} {% load widget_tweaks %} {% load crispy_forms_tags %} {% load static %}
+
+
+
+<body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class="contain">
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+
+                    <div class="row  " data-aos="fade-up" data-aos-duration="1000">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div class="card" style="width: 1000px;">
+
+                                <div class="d-flex justify-content-center">
+
+
+
+                                    <div class="row  ">
+                                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                                            <div class="card" style="width: 1000px;">
+                                                <div class="card-block caption-breadcrumb">
+                                                    <div class="breadcrumb-header">
+                                                        <h5 class="font-weight-bold mb-4">Select Quotation Type <i class="fa fa-file" aria-hidden="true"></i></h5>
+                                                        <span style="opacity: 0.5;">   Once the type of quotation is added, it gets listed in the quotation type list</span>
+                                                    </div>
+                                                    <div class="page-header-breadcrumb">
+                                                        <ul class="breadcrumb-title">
+                                                            <li class="breadcrumb-item">
+                                                                <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top" title="Go to Homepage"> <i class="feather icon-home"></i> </a>
+                                                            </li>
+                                                            <li class="breadcrumb-item"><a href="">Manage Quotation </a>
+                                                            </li>
+                                                            <li class="breadcrumb-item"><a href="{% url 'quotation-list_type' %}">Quotation Type List</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="card-block">
+                                                    <div class="d-flex justify-content-center">
+
+
+                                                    </div>
+                                                    <h2 class="text-uppercase text-center mb-5"></h2> {% for hidden_field in form.hidden_fields %} {{ hidden_field }} {% endfor %}
+                                                    <form action="" method="POST">
+                                                        {% csrf_token %} {% for field in form.visible_fields %}
+                                                        <div class="form-group row">
+                                                            <label class="col-sm-2 col-form-label"> {{ field.label_tag  }}</label
+                                                                >
+                                                                <div class="col-sm-7">
+
+                                                                    {% render_field field class="form-control " %}
+                                                                </div>
+                                                            </div>
+
+
+
+
+
+                                                            {% if field.help_text %}
+                                                            <small class="form-text text-muted">{{ field.help_text }}</small> {% endif %} {% endfor %}
+
+                                                            <br>
+
+                                                            <div class="d-flex justify-content-center">
+
+                                                                <button style="background-color:#353c4e" type="submit" class="btn btn-primary hvr-pulse"><i class="fas fa-step-forward"></i>Continue</button>
+                                                            </div>
+
+
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            </body>
+                                            {% endblock %}
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

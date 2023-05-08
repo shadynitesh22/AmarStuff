@@ -1,0 +1,208 @@
+{% extends 'system/base.html'%} {% block content %}
+
+<body>
+  <!-- Pre-loader start -->
+  <script>
+    const full = document.getElementsByClassName('form-control');
+    var arr = [...full].map(input => input.value);
+  </script>
+  <div class="theme-loader">
+    <div class="ball-scale">
+      <div class="contain">
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+        <div class="ring">
+          <div class="frame"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<div class="pcoded-content">
+  <div class="pcoded-inner-content">
+    <div class="main-body">
+      <div class="page-wrapper">
+        <div class="page-body">
+          <div class="card" data-aos="fade-up" data-aos-duration="1000">
+            <div class="card-block caption-breadcrumb">
+              <div class="breadcrumb-header">
+                <h5>Job Detail</h5>
+                <span>Every Job details can be viewed down
+                  below</span>
+              </div>
+              {% include 'system/messages.html' %}
+              <div class="page-header-breadcrumb">
+                <ul class="breadcrumb-title">
+                  <li class="breadcrumb-item">
+                    <a href="{% url 'dashboard' %}" data-toggle="tooltip" data-placement="top"
+                    title="Go back home page"> <i class="feather icon-home"></i> </a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="">Manage Job</a>
+                  </li>
+                  <li class="breadcrumb-item"><a href="">Add Job</a></li> 
+                </ul>
+              </div>
+            </div>
+            <br />
+            <br />
+            
+              <div class="d-flex justify-content-start">
+
+              
+            <a href="{% url 'joblist' %}" style="font-size: 15px; width: 150px;"
+              class="btn text-dark font-weight-bold" data-toggle="tooltip" data-placement="top"
+              title="Go back to job list" ><i class="fas fa-arrow-left"></i> Job List</a>
+            </div>
+            <div class="d-flex justify-content-end" style="margin-bottom: 30px;">
+              <td><a href="{% url 'job-updateStarted' jobs.id %}" class=""><i class="fas fa-edit" style="font-size: 20px; margin-right:20px ;" data-toggle="tooltip" data-placement="top" title="Edit Job"></i> </i></a></td>
+
+              <td><a href="{% url 'delete-jobStarted' jobs.id %}" class=""><i class="fas fa-trash" style="font-size: 20px; margin-right: 10px;" data-toggle="tooltip" data-placement="top" title="Delete Job"></i></a></td>
+            </div>
+       
+
+          </div>
+          <div class="card">
+
+            <div class="card-block">
+
+              <div data-v-05b4f093="" data-v-b090a320="" class="py-4">
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+
+
+
+
+
+                    Job Number
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{jobs.job_number}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Quotation Number
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">
+                    {{jobs.quotation.quotation_number}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Quotation Customer
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{{jobs.quotation.customer.customer_name}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Shippers Address
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{jobs.shippers_address}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Consign Address
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{jobs.consign_address}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Total Pieces
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted"> {{jobs.Piece}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Total Weight
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-right text-muted">{{jobs.weight}}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Work of Scope
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{% for area in jobs.work_of_scope.all %}{{ area.name }}<br />{% endfor %}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Commodity
+                  </span>
+
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">{% for area in jobs.commodities.all %}{{ area.commodity_name }}<br />{% endfor %}
+                  </span>
+                </p>
+                <hr />
+                <p data-v-05b4f093="" data-v-b090a320="" class="clearfix">
+                  <span data-v-05b4f093="" data-v-b090a320="" class="float-left">
+                    Dimension
+                  </span>
+                  <span data-v-05b4f093="" data-v-b090a320=""
+                    class="float-right text-muted">H:{{jobs.dimension_height}}*W:{{jobs.dimension_weight}}*B:{{jobs.dimension_breadth}}*P:{{jobs.dimension_pieces}}
+                  </span>
+                </p>
+                <hr />
+
+
+              </div>
+
+            </div>
+          </div>
+
+          <script>
+            $(document).ready(function () {
+              $(".mul-select").select2({
+                placeholder: "select country", //placeholder
+                tags: true,
+                tokenSeparators: ["/", ",", ";", " "],
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
