@@ -11,8 +11,10 @@ from django.template.loader import render_to_string
 from core import settings
 from core.decorators import allowed_users
 
-from .forms import JobBookForm, JobEditForm, JobForm, JobProceedForm
+from .forms import JobBookForm, JobEditForm, JobForm, JobProceedForm, BonusForm,LeaveForm
 from .models import BookJob, Job, JobBegin
+from .models import Salary, Bonus, Leave
+
 
 # Create your views here.
 
@@ -25,6 +27,60 @@ class EmailThread(threading.Thread):
 
     def run(self):
         self.email.send()
+
+
+def list_salary(request):
+    salary = Salary.objects.all()
+    context = {"salary": salary}
+    return render(request, "payroll/payroll.list.html", context)
+
+
+def list_leave(request):
+    leave = Leave.objects.all()
+    context = {"leave": leave}
+    return render(request, "payroll/leave.list.html", context)
+
+
+def list_bonus(request):
+    bonus = Bonus.objects.all()
+    context = {"bonus": bonus}
+    return render(request, "payroll/bonus.html", context)
+
+
+def create_bonus(request):
+    bonusForm = BonusForm()
+    if request.method == "POST":
+        bonusForm = BonusForm(request.POST)
+        if bonusForm.is_valid():
+            bonusForm.save()
+            messages.success(request, "Bonus created")
+        return redirect("bonus_list")
+    context = {"form": work_of_scope}
+    return render(request, "payroll/bonus_create.html", context)
+
+
+def create_leave(request):
+    leave_form = LeaveForm()
+    if request.method == "POST":
+        leave_form = LeaveForm(request.POST)
+        if leave_form.is_valid():
+            leave_form.save()
+            messages.success(request, "Leave created")
+        return redirect("leave_list")
+    context = {"form": work_of_scope}
+    return render(request, "payroll/leave_create.html", context)
+
+
+def create_salary(request):
+    salary_form = SalaryForm()
+    if request.method == "POST":
+        salary_form = SalaryForm(request.POST)
+        if salary_form.is_valid():
+            salary_form.save()
+            messages.success(request, "Leave created")
+        return redirect("salary_list")
+    context = {"form": work_of_scope}
+    return render(request, "payroll/create_salary.html", context)
 
 
 def list_job(request):
@@ -244,3 +300,75 @@ def send_booking_email(request, pk):
         messages.success(request, " Job Booking email sent   successful !")
 
     return redirect("booking_list")
+
+
+def release_payroll(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        payroll_type = request.POST.get('payroll_type')
+
+        # Retrieve the user and payroll objects based on the selected user ID
+        user = Customer.objects.get(id=user_id)
+        payroll = Payroll.objects.create(status=payroll_type, user=user)
+
+        # Release the payroll
+        payroll.release_payroll()
+
+        # Redirect to a success page or do any other necessary actions
+        return redirect('success')
+
+    # Render the payroll release form
+    return render(request, 'release_payroll.html')
+
+
+def create_salary(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        salary_amount = request.POST.get('salary_amount')
+        release_date = request.POST.get('release_date')
+
+        user = Customer.objects.get(id=user_id)
+        salary = Salary.objects.create(user=user, salary_amount=salary_amount, release_date=release_date)
+
+        # Redirect to a success page or do any other necessary actions
+        return redirect('success')
+
+    # Render the salary creation form
+    return render(request, 'create_salary.html')
+
+
+def create_bonus(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        salary_id = request.POST.get('salary_id')
+        bonus_amount = request.POST.get('bonus_amount')
+
+        user = Customer.objects.get(id=user_id)
+        salary = Salary.objects.get(id=salary_id)
+        bonus = Bonus.objects.create(user=user, salary=salary, amount=bonus_amount)
+
+        # Redirect to a success page or do any other necessary actions
+        return redirect('success')
+
+    # Render the bonus creation form
+    return render(request, 'create_bonus.html')
+
+
+def create_leave(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        total_leave = request.POST.get('total_leave')
+
+        user = Customer.objects.get(id=user_id)
+        leave = Leave.objects.create(user=user, total_leave=total_leave)
+
+        # Redirect to a success page or do any other necessary actions
+        return redirect('success')
+
+    # Render the leave creation form
+    return render(request, 'create_leave.html')
+
+
+def success(request):
+    # Render a success page
+    return render(request, 'success.html')

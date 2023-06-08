@@ -2,6 +2,7 @@ from quotation.models import Commodities, Quotation, WorkOFScope
 from users.models import Customer
 
 from django.db import models
+import datetime
 
 
 class Job(models.Model):
@@ -16,6 +17,95 @@ class Job(models.Model):
 
     def __str__(self):
         return f"{self.status} -To:{self.quotation.customer.customer_name}"
+
+
+class Payroll(models.Model):
+    STATUS = (
+        ("Monthly Salary", "Monthly Salary"),
+
+
+    )
+
+    status = models.CharField(max_length=200, null=True, choices=STATUS)
+    user = models.ForeignKey(Customer, null=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.status} - To: {self.user.username}"
+
+    def release_payroll(self):
+        salary = self.user.salary
+        salary_amount = salary.salary_amount
+
+        release_date = salary.release_date
+        today = datetime.date.today()
+
+        if today.day < release_date:
+            # Payroll will be released on the next release date of the current month
+            release_month = today.month
+        else:
+            # Payroll will be released on the next release date of the next month
+            release_month = (today.month % 12) + 1
+
+        release_year = today.year if today.month != 12 else today.year + 1
+
+        release_date = datetime.date(release_year, release_month, salary.release_date)
+
+        deduction = 0
+
+        bonus = Bonus.objects.filter(user=self.user).first()
+        if bonus:
+            deduction = bonus.amount
+
+        total_salary = salary_amount - deduction
+        current_salary = total_salary
+        leave_days = \
+        Leave.objects.filter(user=self.user, created_at__month=today.month, created_at__year=today.year).aggregate(
+            total_leave=models.Sum('total_leave'))['total_leave']
+        if leave_days is None:
+            leave_days = 0
+
+        if leave_days > 12:
+            excess_leave = leave_days - 12
+            deduction = salary_amount * (excess_leave / 100)
+
+        total_salary = current_salary - deduction
+
+        # Update the total_amount field in the Customer model
+        self.user.total_amount += total_salary
+        self.user.save()
+
+        # Perform the necessary actions for releasing the payroll, e.g., generating payslip, sending notifications,
+        # etc. ...
+
+
+class Salary(models.Model):
+    user = models.OneToOneField(Customer, null=False, on_delete=models.CASCADE)
+    salary_amount = models.IntegerField(null=False, blank=False)
+    release_date = models.PositiveSmallIntegerField(null=False, blank=False, default=1)
+
+    def __str__(self):
+        return f"Salary - User: {self.user.username}"
+
+
+class Bonus(models.Model):
+
+    salary = models.ForeignKey(Salary, null=True, on_delete=models.CASCADE)
+    bonus_percent = models.IntegerField(max_length=100,null=False,blank=False)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
+
+    def save(self,*args,**kwargs):
+        toatl_amount = self.bonus_percent % self.salary.salary_amount *100
+        toatl_amount = self.amount
+        super().save()
+
+    def __str__(self):
+        return f"Bonus - User: {self.user.username}"
+
+
+class Leave(models.Model):
+    user = models.ForeignKey(Customer, null=False, on_delete=models.CASCADE)
+    total_leave = models.IntegerField(null=False, blank=False, default=0)
+    created_at = models.DateField(auto_now_add=True)
 
 
 class JobBegin(models.Model):

@@ -55,11 +55,13 @@ class Roles(models.Model):
 class Customer(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=30, null=True, blank=True, unique=True)
     email = models.EmailField(max_length=100, null=False, blank=False)
+
     roles = models.ForeignKey(Roles, on_delete=models.CASCADE, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)
 
+    is_superuser = models.BooleanField(default=False)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, default=0)
     USERNAME_FIELD = "username"
     REQUIRED_FIELDS = ["email"]
 
