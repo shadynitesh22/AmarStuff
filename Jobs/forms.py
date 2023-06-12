@@ -12,16 +12,20 @@ class JobForm(ModelForm):
 class SalaryForm(ModelForm):
     class Meta:
         model = Salary
+        fields = ("__all__")
 
 
 class LeaveForm(ModelForm):
     class Meta:
         model = Leave
+        fields = ("__all__")
 
 
 class BonusForm(ModelForm):
     class Meta:
         model = Bonus
+        fields = ("__all__")
+
 
 class JobProceedForm(ModelForm):
     class Meta:
