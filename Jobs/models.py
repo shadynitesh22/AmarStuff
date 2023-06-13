@@ -23,7 +23,6 @@ class Payroll(models.Model):
     STATUS = (
         ("Monthly Salary", "Monthly Salary"),
 
-
     )
 
     status = models.CharField(max_length=200, null=True, choices=STATUS)
@@ -59,8 +58,8 @@ class Payroll(models.Model):
         total_salary = salary_amount - deduction
         current_salary = total_salary
         leave_days = \
-        Leave.objects.filter(user=self.user, created_at__month=today.month, created_at__year=today.year).aggregate(
-            total_leave=models.Sum('total_leave'))['total_leave']
+            Leave.objects.filter(user=self.user, created_at__month=today.month, created_at__year=today.year).aggregate(
+                total_leave=models.Sum('total_leave'))['total_leave']
         if leave_days is None:
             leave_days = 0
 
@@ -81,20 +80,19 @@ class Payroll(models.Model):
 class Salary(models.Model):
     user = models.OneToOneField(Customer, null=False, on_delete=models.CASCADE)
     salary_amount = models.IntegerField(null=False, blank=False)
-    release_date = models.PositiveSmallIntegerField(null=False, blank=False, default=1)
+    release_date = models.PositiveSmallIntegerField(null=False, blank=False, )
 
     def __str__(self):
         return f"Salary - User: {self.user.username}"
 
 
 class Bonus(models.Model):
-
     salary = models.ForeignKey(Salary, null=True, on_delete=models.CASCADE)
-    bonus_percent = models.IntegerField(max_length=100,null=False,blank=False)
+    bonus_percent = models.IntegerField(max_length=100, default=1)
     amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
 
-    def save(self,*args,**kwargs):
-        toatl_amount = self.bonus_percent % self.salary.salary_amount *100
+    def save(self, *args, **kwargs):
+        toatl_amount = self.bonus_percent % self.salary.salary_amount * 100
         toatl_amount = self.amount
         super().save()
 
@@ -104,8 +102,26 @@ class Bonus(models.Model):
 
 class Leave(models.Model):
     user = models.ForeignKey(Customer, null=False, on_delete=models.CASCADE)
-    total_leave = models.IntegerField(null=False, blank=False, default=0)
+    leve_from = models.DateField()
+    leve_to = models.DateField()
+    total_leave = models.IntegerField(null=True, blank=True, default=0)
     created_at = models.DateField(auto_now_add=True)
+    total_leave_remaining = models.IntegerField()
+
+    def getDays(self):
+        """
+        Leave from _ leave to =  leave days
+        """
+        pass
+
+    def CalculateTotalLeave(self):
+        """
+        Add leave days to total increment +
+        totatl days = 1
+        leavedays = 2
+        total = 3
+        """
+        pass
 
 
 class JobBegin(models.Model):

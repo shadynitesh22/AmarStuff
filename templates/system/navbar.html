@@ -346,6 +346,45 @@ I'm just looking around. Will you tell me something about yourself?
 </a>
 </li>
 </li>
+
+  <li class="pcoded-hasmenu">
+<a href="javascript:void(0)">
+<span class="pcoded-micon"><i class="fas fa-tasks"></i></span>
+<span class="pcoded-mtext hvr-grow">Manage Leave</span>
+</a>
+<ul class="pcoded-submenu">
+<li class=" ">
+<a href="{% url 'quotation-create' %}">
+<span class="pcoded-mtext hvr-grow">Add Leave</span>
+</a>
+</li>
+<li class=" ">
+<a href="{% url 'list_leave' %}">
+<span class="pcoded-mtext hvr-grow">Leave List</span>
+</a>
+</li>
+<li class=" ">
+<a href="{% url 'quotation-create_type' %}">
+<span class="pcoded-mtext hvr-grow">Add Bonus </span>
+</a>
+</li>
+<li>
+  <a href="{% url 'list_bonus' %}">
+<span class="pcoded-mtext hvr-grow">Bonus List</span>
+</a>
+</li>
+  <li>
+  <a href="{% url 'list_salary' %}">
+<span class="pcoded-mtext hvr-grow">Salary List</span>
+</a>
+</li>
+
+    <li>
+  <a href="{% url 'quotation-list_type' %}">
+<span class="pcoded-mtext hvr-grow">Add Salary</span>
+</a>
+</li>
+
 <!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
 <!--<a href="javascript:void(0)">-->
 <!--<span class="pcoded-micon"><i class="fa fa-arrow-circle-o-down"></i>-->
@@ -363,8 +402,6 @@ I'm just looking around. Will you tell me something about yourself?
 
 
 
-</ul>
-</li>
 <!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
 <!--<a href="javascript:void(1)">-->
 <!--<span class="pcoded-micon"><i class="feather icon-box"></i-->
@@ -412,7 +449,8 @@ I'm just looking around. Will you tell me something about yourself?
 <span class="pcoded-mtext hvr-grow">Task Type List</span>
 </a>
 </li>
-</li>
+
+
 <!--<li class=" pcoded-hasmenu active pcoded-trigger">-->
 <!--<a href="javascript:void(0)">-->
 <!--<span class="pcoded-micon"><i class="fa fa-arrow-circle-o-down"></i>-->
@@ -463,11 +501,49 @@ I'm just looking around. Will you tell me something about yourself?
 
 
 
-</li>
 
 
 
 </ul>
+</li>
+
+  <li class="pcoded-hasmenu">
+<a href="javascript:void(0)">
+<span class="pcoded-micon"><i class="fas fa-tasks"></i></span>
+<span class="pcoded-mtext hvr-grow">Manage Leave</span>
+</a>
+<ul class="pcoded-submenu">
+<li class=" ">
+<a href="{% url 'create_leave' %}">
+<span class="pcoded-mtext hvr-grow">Add Leave</span>
+</a>
+</li>
+<li class=" ">
+<a href="{% url 'list_leave' %}">
+<span class="pcoded-mtext hvr-grow">Leave List</span>
+</a>
+</li>
+
+<li class=" ">
+<a href="{% url 'create_bonus' %}">
+<span class="pcoded-mtext hvr-grow">Add Bonus </span>
+</a>
+</li>
+<li>
+  <a href="{% url 'list_bonus' %}">
+<span class="pcoded-mtext hvr-grow">Bonus List</span>
+</a>
+</li>
+  <li>
+  <a href="{% url 'list_salary' %}">
+<span class="pcoded-mtext hvr-grow">Salary List</span>
+</a>
+</li>
+
+    <li>
+  <a href="{% url 'quotation-list_type' %}">
+<span class="pcoded-mtext hvr-grow">Add Salary</span>
+</a>
 </li>
 
 <!--<li class=" pcoded-hasmenu active pcoded-trigger">-->

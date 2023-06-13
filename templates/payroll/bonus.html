@@ -51,8 +51,8 @@
 <div class="card" data-aos="fade-up" data-aos-duration="1000">
 <div class="card-block caption-breadcrumb">
 <div class="breadcrumb-header">
-<h5>Job Booking List <i class="fa fa-book" aria-hidden="true"></i></h5>
-<span style="opacity: 0.6;">Bonus Bookings created by users are listed down</span>
+<h5>Bonus  List <i class="fa fa-book" aria-hidden="true"></i></h5>
+<span style="opacity: 0.6;">Bonus Bookings created by admin are listed down</span>
 </div>
 
 <div class="page-header-breadcrumb">
@@ -86,6 +86,7 @@
 
 <th scope="col">Percent <i class="feather icon-help-circle"></i></th>
 <th  scope="col">User <i class="feather icon-mail"></i></th>
+  <th  scope="col">Total Amount <i class="feather icon-mail"></i></th>
 <th  scope="col">Edit <i class="fas fa-edit"></i></th>
 <th  scope="col">Delete <i class="fas fa-trash"></i></th>
 
@@ -99,8 +100,9 @@
 <tbody>
 <tr>
 {% for bonus in bonus %}
-<td>{{bonus.percent}}</td>
+<td>{{bonus.bonus_percent}}</td>
 <td>{{bonus.user}}</td>
+  <td>{{bonus.amount}}</td>
 <td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="#"><i class="fas fa-edit"></i></a></td>
 <td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="#" class=""><i class="fas fa-trash"></i></a></td>
 

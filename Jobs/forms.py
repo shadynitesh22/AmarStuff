@@ -18,7 +18,7 @@ class SalaryForm(ModelForm):
 class LeaveForm(ModelForm):
     class Meta:
         model = Leave
-        fields = ("__all__")
+        exclude = ("total_leave", "leave_remaining")
 
 
 class BonusForm(ModelForm):
