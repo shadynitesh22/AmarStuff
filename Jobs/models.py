@@ -1,8 +1,7 @@
 from quotation.models import Commodities, Quotation, WorkOFScope
 from users.models import Customer
-
+from datetime import datetime, timedelta, date
 from django.db import models
-import datetime
 
 
 class Job(models.Model):
@@ -102,17 +101,25 @@ class Bonus(models.Model):
 
 class Leave(models.Model):
     user = models.ForeignKey(Customer, null=False, on_delete=models.CASCADE)
-    leve_from = models.DateField()
-    leve_to = models.DateField()
+    start_date = models.DateField()
+    end_date = models.DateField()
     total_leave = models.IntegerField(null=True, blank=True, default=0)
     created_at = models.DateField(auto_now_add=True)
-    total_leave_remaining = models.IntegerField()
+    total_leave_remaining = models.IntegerField(default=14)
 
-    def getDays(self):
+    def save(self, *args, **kwargs):
         """
-        Leave from _ leave to =  leave days
+        Calculate the number of leave days
         """
-        pass
+
+        total_days = (self.end_date - self.start_date).days + 1
+        self.total_leave = total_days
+        total_days_remaing = self.total_leave_remaining - total_days
+        self.total_leave_remaining = total_days_remaing
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.user} - Leave for {self.total_leave}"
 
     def CalculateTotalLeave(self):
         """

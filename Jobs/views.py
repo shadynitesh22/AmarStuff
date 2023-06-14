@@ -11,7 +11,7 @@ from django.template.loader import render_to_string
 from core import settings
 from core.decorators import allowed_users
 
-from .forms import JobBookForm, JobEditForm, JobForm, JobProceedForm, BonusForm,LeaveForm
+from .forms import JobBookForm, JobEditForm, JobForm, JobProceedForm, BonusForm, LeaveForm, SalaryForm
 from .models import BookJob, Job, JobBegin
 from .models import Salary, Bonus, Leave
 
@@ -66,7 +66,7 @@ def create_leave(request):
         if leave_form.is_valid():
             leave_form.save()
             messages.success(request, "Leave created")
-        return redirect("leave_list")
+        return redirect("list_leave")
     context = {"form": leave_form}
     return render(request, "payroll/leave_create.html", context)
 
@@ -79,7 +79,7 @@ def create_salary(request):
             salary_form.save()
             messages.success(request, "Leave created")
         return redirect("salary_list")
-    context = {"form": work_of_scope}
+    context = {"form": salary_form}
     return render(request, "payroll/create_salary.html", context)
 
 
