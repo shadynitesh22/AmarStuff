@@ -76,6 +76,7 @@
 <div class="dropdown-toggle" data-toggle="dropdown">
 <img src="{% static 'img\user.png' %}" class="img-radius hvr-grow" alt="User-Profile-Image">
 <span class="hvr-grow">{{request.user.username}}</span>
+
 <i class="feather icon-chevron-down"></i>
 </div>
 <div class="dropdown-toggle" data-toggle="dropdown">
@@ -236,6 +237,7 @@ I'm just looking around. Will you tell me something about yourself?
 
 
 <div class="pcoded-navigatio-lavel ">Manage</div>
+
 <ul class="pcoded-item pcoded-left-item">
 <li class="pcoded-hasmenu">
     {%  if request.user.roles.name == 'Employees' or request.user.roles.name == 'Writer' %}
@@ -535,15 +537,22 @@ I'm just looking around. Will you tell me something about yourself?
 </a>
 </li>
   <li>
-  <a href="{% url 'list_salary' %}">
+  <a href="{% url 'lists_salary' %}">
 <span class="pcoded-mtext hvr-grow">Salary List</span>
 </a>
 </li>
 
     <li>
-  <a href="{% url 'quotation-list_type' %}">
+  <a href="{% url 'create_salary' %}">
 <span class="pcoded-mtext hvr-grow">Add Salary</span>
 </a>
+</li>
+
+     <li>
+  <a href="{% url 'create_attendance' %}">
+<span class="pcoded-mtext hvr-grow">Attendance</span>
+</a>
+
 </li>
 
 <!--<li class=" pcoded-hasmenu active pcoded-trigger">-->

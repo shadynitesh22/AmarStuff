@@ -11,8 +11,8 @@ from django.template.loader import render_to_string
 from core import settings
 from core.decorators import allowed_users
 
-from .forms import JobBookForm, JobEditForm, JobForm, JobProceedForm, BonusForm, LeaveForm, SalaryForm
-from .models import BookJob, Job, JobBegin
+from .forms import JobBookForm, JobEditForm, JobForm, JobProceedForm, BonusForm, LeaveForm, SalaryForm, AttendanceForm
+from .models import BookJob, Job, JobBegin, Attendance
 from .models import Salary, Bonus, Leave
 
 
@@ -29,17 +29,7 @@ class EmailThread(threading.Thread):
         self.email.send()
 
 
-def list_salary(request):
-    salary = Salary.objects.all()
-    context = {"salary": salary}
-    return render(request, "payroll/payroll.list.html", context)
-
-
-def list_leave(request):
-    leave = Leave.objects.all()
-    context = {"leave": leave}
-    return render(request, "payroll/leave.list.html", context)
-
+# Bonus
 
 def list_bonus(request):
     bonus = Bonus.objects.all()
@@ -54,9 +44,91 @@ def create_bonus(request):
         if bonusForm.is_valid():
             bonusForm.save()
             messages.success(request, "Bonus created")
-        return redirect("bonus_list")
+        return redirect("list_bonus")
     context = {"form": bonusForm}
     return render(request, "payroll/bonus_create.html", context)
+
+
+@allowed_users(allowed_roles=["Manger"])
+def update_bonus(request, pk):
+    bonus_form = Bonus.objects.get(id=pk)
+    form = BonusForm(instance=bonus_form)
+    if request.method == "POST":
+        form = BonusForm(request.POST, instance=bonus_form)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Bonus has been Updated")
+        return redirect("list_bonus")
+    context = {"form": form}
+    return render(request, "payroll/bonus_create.html", context)
+
+
+@allowed_users(allowed_roles=["Manger"])
+def delete_bonus(request, pk):
+    bonus = Bonus.objects.get(id=pk)
+    if request.method == "POST":
+        bonus.delete()
+        messages.success(request, " Bonus Deleted   !")
+        return redirect("list_bonus")
+
+    context = {"item": bonus}
+    return render(request, "system/confirm_delete_bonus.html", context)
+
+
+# Attendance
+def list_attendance(request):
+    attendance = Attendance.objects.all()
+    context = {"attendance": attendance}
+    return render(request, 'payroll/list_attendance.html', context)
+
+
+def create_attendance(request):
+    attendanceForm = AttendanceForm()
+    if request.method == "POST":
+        attendanceForm = AttendanceForm(request.POST)
+        if attendanceForm.is_valid():
+            attendance = attendanceForm.save(commit=False)
+            attendance.user = request.user  # Assign logged-in user to the form data
+            attendance.save()
+            attendanceForm.save()
+            messages.success(request, "Attendance created")
+        return redirect("list_attendance")
+    context = {"form": attendanceForm}
+    return render(request, "payroll/create_attendance.html", context)
+
+
+@allowed_users(allowed_roles=["Manger"])
+def update_attendance(request, pk):
+    attendance = Attendance.objects.get(id=pk)
+    form = AttendanceForm(instance=attendance)
+    if request.method == "POST":
+        form = AttendanceForm(request.POST, instance=attendance)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Attendance Updated")
+        return redirect("list_attendance")
+    context = {"form": form}
+    return render(request, "payroll/create_attendance.html", context)
+
+
+@allowed_users(allowed_roles=["Manger"])
+def delete_attendance(request, pk):
+    attendance = Attendance.objects.get(id=pk)
+    if request.method == "POST":
+        attendance.delete()
+        messages.success(request, " Attendance Deleted   !")
+        return redirect("list_attendance")
+
+    context = {"item": attendance}
+    return render(request, "system/confirm_delete_attendance.html", context)
+
+
+# Leave
+
+def list_leave(request):
+    leave = Leave.objects.all()
+    context = {"leave": leave}
+    return render(request, "payroll/leave.list.html", context)
 
 
 def create_leave(request):
@@ -71,6 +143,40 @@ def create_leave(request):
     return render(request, "payroll/leave_create.html", context)
 
 
+@allowed_users(allowed_roles=["Manger"])
+def delete_leave(request, pk):
+    leave = Leave.objects.get(id=pk)
+    if request.method == "POST":
+        leave.delete()
+        messages.success(request, " Leave Deleted !")
+        return redirect("list_leave")
+
+    context = {"item": leave}
+    return render(request, "system/confirm_delete_leave.html", context)
+
+
+@allowed_users(allowed_roles=["Manger"])
+def update_leave(request, pk):
+    leave_form = Leave.objects.get(id=pk)
+    form = LeaveForm(instance=leave_form)
+    if request.method == "POST":
+        form = LeaveForm(request.POST, instance=leave_form)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Leave Updated")
+        return redirect("list_leave")
+    context = {"form": form}
+    return render(request, "quotation/work_of_scope.html", context)
+
+
+# Salary
+
+def list_salary(request):
+    salary = Salary.objects.all()
+    context = {"salary": salary}
+    return render(request, "payroll/payroll.list.html", context)
+
+
 def create_salary(request):
     salary_form = SalaryForm()
     if request.method == "POST":
@@ -78,9 +184,38 @@ def create_salary(request):
         if salary_form.is_valid():
             salary_form.save()
             messages.success(request, "Leave created")
-        return redirect("salary_list")
+        return redirect("lists_salary")
     context = {"form": salary_form}
     return render(request, "payroll/create_salary.html", context)
+
+
+@allowed_users(allowed_roles=["Manger"])
+def update_salary(request, pk):
+    salary = Salary.objects.get(id=pk)
+    form = SalaryForm(instance=salary)
+    if request.method == "POST":
+        form = SalaryForm(request.POST, instance=salary)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "updated")
+        return redirect("lists_salary")
+    context = {"form": form}
+    return render(request, "payroll/create_salary.html", context)
+
+
+@allowed_users(allowed_roles=["Manger"])
+def delete_salary(request, pk):
+    leave = Salary.objects.get(id=pk)
+    if request.method == "POST":
+        leave.delete()
+        messages.success(request, " Leave   !")
+        return redirect("lists_salary")
+
+    context = {"item": leave}
+    return render(request, "system/confirm_delete_salary.html", context)
+
+
+# Leave
 
 
 def list_job(request):
@@ -319,6 +454,7 @@ def release_payroll(request):
 
     # Render the payroll release form
     return render(request, 'release_payroll.html')
+
 
 def success(request):
     # Render a success page

@@ -99,25 +99,14 @@
 </thead>
 <tbody>
 <tr>
-{% for bonus in bonus %}
+{% for bonus in salary %}
 <td>{{bonus.salary_amount}}</td>
 <td>{{bonus.user}}</td>
   <td>{{bonus.release_date}}</td>
-<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="#"><i class="fas fa-edit"></i></a></td>
-<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="#" class=""><i class="fas fa-trash"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a  href="{% url 'update_salary' bonus.id %}"><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_salary' bonus.id %}" class=""><i class="fas fa-trash"></i></a></td>
 
-<!--{% if  quotation.jobs.status == 'Job Booking Email Sent' %}-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>-->
-<!--  <td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'documentation-form' quotation.id %}" class=""><i class="fas fa-plus"></i></a></td>-->
 
-<!--{% else  %}-->
-
-<!--<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon"><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon. "><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Send booking email by clicking this icon."><a href="{% url 'email_page_book' quotation.id %}" class=""><i class="fas fa-paper-plane"></i></a></td>-->
-
-<!--{% endif %}-->
 </tr>
 {% endfor%}
 

@@ -1,6 +1,10 @@
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils import timezone
+
 from quotation.models import Commodities, Quotation, WorkOFScope
 from users.models import Customer
-from datetime import datetime, timedelta, date
+from datetime import datetime
 from django.db import models
 
 
@@ -28,7 +32,28 @@ class Payroll(models.Model):
     user = models.ForeignKey(Customer, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.status} - To: {self.user.username}"
+        return f"{self.status} - To: {self.user}"
+
+
+class Attendance(models.Model):
+    user = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date = models.DateField(default=timezone.now)
+    present = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.user} - {self.date} - {'Present' if self.present else 'Absent'}"
+
+
+@receiver(post_save, sender=Customer)
+def create_attendance_record(sender, instance, created, **kwargs):
+    if created:
+        Attendance.objects.create(user=instance)
+
+
+class Salary(models.Model):
+    user = models.OneToOneField(Customer, null=False, on_delete=models.CASCADE)
+    salary_amount = models.IntegerField(null=False, blank=False)
+    release_date = models.PositiveSmallIntegerField(null=False, blank=False, )
 
     def release_payroll(self):
         salary = self.user.salary
@@ -75,20 +100,14 @@ class Payroll(models.Model):
         # Perform the necessary actions for releasing the payroll, e.g., generating payslip, sending notifications,
         # etc. ...
 
-
-class Salary(models.Model):
-    user = models.OneToOneField(Customer, null=False, on_delete=models.CASCADE)
-    salary_amount = models.IntegerField(null=False, blank=False)
-    release_date = models.PositiveSmallIntegerField(null=False, blank=False, )
-
     def __str__(self):
-        return f"Salary - User: {self.user.username}"
+        return f"Salary - User: {self.user}"
 
 
 class Bonus(models.Model):
     salary = models.ForeignKey(Salary, null=True, on_delete=models.CASCADE)
     bonus_percent = models.IntegerField(max_length=100, default=1)
-    amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         toatl_amount = self.bonus_percent % self.salary.salary_amount * 100
@@ -96,7 +115,7 @@ class Bonus(models.Model):
         super().save()
 
     def __str__(self):
-        return f"Bonus - User: {self.user.username}"
+        return f"Bonus - User: {self.salary.user}"
 
 
 class Leave(models.Model):

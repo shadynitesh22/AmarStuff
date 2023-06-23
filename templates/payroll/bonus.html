@@ -90,34 +90,22 @@
 <th  scope="col">Edit <i class="fas fa-edit"></i></th>
 <th  scope="col">Delete <i class="fas fa-trash"></i></th>
 
-<!--  {% if  quotation.jobs.status == 'Job Booking Email Sent' %}-->
-<!--<th data-toggle="tooltip" data-placement="top" title="Job Numbers are illustrated here" scope="col">Create AirwayBill <i class="feather icon-mail"></i></th>-->
-<!--{% else  %}-->
-<!--  <th data-toggle="tooltip" data-placement="top" title="Job Numbers are illustrated here" scope="col">Send Email <i class="feather icon-mail"></i></th>-->
-<!--  {% endif %}-->
+
 </tr>
 </thead>
 <tbody>
 <tr>
 {% for bonus in bonus %}
 <td>{{bonus.bonus_percent}}</td>
-<td>{{bonus.user}}</td>
+<td>{{bonus.salary.user}}</td>
   <td>{{bonus.amount}}</td>
-<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="#"><i class="fas fa-edit"></i></a></td>
-<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="#" class=""><i class="fas fa-trash"></i></a></td>
 
-<!--{% if  quotation.jobs.status == 'Job Booking Email Sent' %}-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>-->
-<!--  <td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'documentation-form' quotation.id %}" class=""><i class="fas fa-plus"></i></a></td>-->
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a  href="{% url 'update_bonus' bonus.id %}"><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_bonus' bonus.id %}" class=""><i class="fas fa-trash"></i></a></td>
 
-<!--{% else  %}-->
 
-<!--<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon"><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon. "><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Send booking email by clicking this icon."><a href="{% url 'email_page_book' quotation.id %}" class=""><i class="fas fa-paper-plane"></i></a></td>-->
 
-<!--{% endif %}-->
+
 </tr>
 {% endfor%}
 

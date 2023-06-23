@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "Jobs",
     "documentation",
     "safedelete",
+    'django_crontab',
 
 
 ]
@@ -146,3 +147,7 @@ SAFE_DELETE_INTERPRET_UNDELETED_OBJECTS_AS_CREATED = True
 
 
 django_heroku.settings(locals())
+
+CRONJOBS = [
+    ('0 0 * * *', 'core.management.commands.create_attendance_records')
+]
