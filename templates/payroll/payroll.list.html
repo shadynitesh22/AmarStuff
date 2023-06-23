@@ -51,8 +51,8 @@
 <div class="card" data-aos="fade-up" data-aos-duration="1000">
 <div class="card-block caption-breadcrumb">
 <div class="breadcrumb-header">
-<h5>Job Booking List <i class="fa fa-book" aria-hidden="true"></i></h5>
-<span style="opacity: 0.6;">Job Bookings created by users are listed down</span>
+<h5>Salary  List <i class="fa fa-book" aria-hidden="true"></i></h5>
+<span style="opacity: 0.6;">Payroll created by admin are listed down</span>
 </div>
 
 <div class="page-header-breadcrumb">
@@ -60,7 +60,7 @@
 <li class="breadcrumb-item">
 <a href="{% url 'dashboard' %} " data-toggle="tooltip" data-placement="top" title="Go to homepage"> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a href="">Manage Job Bookings</a>
+<li class="breadcrumb-item"><a href="">Manage Payroll</a>
 </li>
 
 
@@ -84,8 +84,9 @@
 <thead>
 <tr>
 
-<th scope="col">Percent <i class="feather icon-help-circle"></i></th>
+<th scope="col">Salary Amount <i class="feather icon-help-circle"></i></th>
 <th  scope="col">User <i class="feather icon-mail"></i></th>
+  <th  scope="col">Release Date <i class="feather icon-mail"></i></th>
 <th  scope="col">Edit <i class="fas fa-edit"></i></th>
 <th  scope="col">Delete <i class="fas fa-trash"></i></th>
 
@@ -98,24 +99,14 @@
 </thead>
 <tbody>
 <tr>
-{% for bonus in bonus %}
-<td>{{bonus.percent}}</td>
+{% for bonus in salary %}
+<td>{{bonus.salary_amount}}</td>
 <td>{{bonus.user}}</td>
-<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="#"><i class="fas fa-edit"></i></a></td>
-<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="#" class=""><i class="fas fa-trash"></i></a></td>
+  <td>{{bonus.release_date}}</td>
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a  href="{% url 'update_salary' bonus.id %}"><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_salary' bonus.id %}" class=""><i class="fas fa-trash"></i></a></td>
 
-<!--{% if  quotation.jobs.status == 'Job Booking Email Sent' %}-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>-->
-<!--  <td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'documentation-form' quotation.id %}" class=""><i class="fas fa-plus"></i></a></td>-->
 
-<!--{% else  %}-->
-
-<!--<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon"><a href="{% url 'update_bookings' quotation.id %}" class=""><i class="fas fa-edit"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon. "><a href="{% url 'delete_bookings' quotation.id %}" class=""><i class="fas fa-trash"></i></a></td>-->
-<!--<td data-toggle="tooltip" data-placement="left" title="Send booking email by clicking this icon."><a href="{% url 'email_page_book' quotation.id %}" class=""><i class="fas fa-paper-plane"></i></a></td>-->
-
-<!--{% endif %}-->
 </tr>
 {% endfor%}
 

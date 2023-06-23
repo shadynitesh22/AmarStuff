@@ -51,8 +51,8 @@
 <div class="card" data-aos="fade-up" data-aos-duration="1000">
 <div class="card-block caption-breadcrumb">
 <div class="breadcrumb-header">
-<h5>Leave  List <i class="fa fa-book" aria-hidden="true"></i></h5>
-<span style="opacity: 0.6;">Job Bookings created by users are listed down</span>
+<h5>Attendance  List <i class="fa fa-book" aria-hidden="true"></i></h5>
+<span style="opacity: 0.6;">Your Attendance will be listed down</span>
 </div>
 
 <div class="page-header-breadcrumb">
@@ -60,7 +60,7 @@
 <li class="breadcrumb-item">
 <a href="{% url 'dashboard' %} " data-toggle="tooltip" data-placement="top" title="Go to homepage"> <i class="feather icon-home"></i> </a>
 </li>
-<li class="breadcrumb-item"><a href="">Manage Leave List</a>
+<li class="breadcrumb-item"><a href="">Clock In </a>
 </li>
 
 
@@ -84,33 +84,23 @@
 <thead>
 <tr>
 
-<th scope="col">Total Leave <i class="feather icon-help-circle"></i></th>
-<th  scope="col">Leave From <i class="feather icon-mail"></i></th>
-  <th  scope="col">Leave To <i class="feather icon-mail"></i></th>
-  <th  scope="col">User <i class="feather icon-mail"></i></th>
-    <th  scope="col">Leave Remaining  <i class="feather icon-mail"></i></th>
-  <th  scope="col">Created At <i class="feather icon-mail"></i></th>
+<th scope="col">User <i class="feather icon-help-circle"></i></th>
+<th  scope="col">Is Present <i class="feather icon-mail"></i></th>
+  <th  scope="col"> Date <i class="feather icon-mail"></i></th>
 <th  scope="col">Edit <i class="fas fa-edit"></i></th>
 <th  scope="col">Delete <i class="fas fa-trash"></i></th>
 
-<!--  {% if  quotation.jobs.status == 'Job Booking Email Sent' %}-->
-<!--<th data-toggle="tooltip" data-placement="top" title="Job Numbers are illustrated here" scope="col">Create AirwayBill <i class="feather icon-mail"></i></th>-->
-<!--{% else  %}-->
-<!--  <th data-toggle="tooltip" data-placement="top" title="Job Numbers are illustrated here" scope="col">Send Email <i class="feather icon-mail"></i></th>-->
-<!--  {% endif %}-->
+
 </tr>
 </thead>
 <tbody>
 <tr>
-{% for bonus in leave %}
-<td>{{bonus.total_leave}}</td>
-<td>{{bonus.start_date}}</td>
-  <td>{{bonus.end_date}}</td>
-  <td>{{bonus.user}}</td>
-    <td>{{bonus.total_leave_remaining}}</td>
-  <td>{{bonus.created_at}}</td>
-<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a  href="{% url 'update_leave' bonus.id %}"><i class="fas fa-edit"></i></a></td>
-<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_leave' bonus.id %}" class=""><i class="fas fa-trash"></i></a></td>
+{% for bonus in attendance %}
+<td>{{bonus.user}}</td>
+<td>{{bonus.present}}</td>
+  <td>{{bonus.date}}</td>
+<td data-toggle="tooltip" data-placement="left" title="Edit by clicking the icon. "><a  href="{% url 'update_attendance' bonus.id %}"><i class="fas fa-edit"></i></a></td>
+<td data-toggle="tooltip" data-placement="left" title="Delete by clicking the icon."><a href="{% url 'delete_attendance' bonus.id %}" class=""><i class="fas fa-trash"></i></a></td>
 
 
 </tr>

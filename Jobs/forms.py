@@ -1,6 +1,7 @@
+from django import forms
 from django.forms import ModelForm
 
-from .models import BookJob, Job, JobBegin, Salary, Bonus, Leave
+from .models import BookJob, Job, JobBegin, Salary, Bonus, Leave, Attendance
 
 
 class JobForm(ModelForm):
@@ -15,16 +16,25 @@ class SalaryForm(ModelForm):
         fields = ("__all__")
 
 
+class AttendanceForm(ModelForm):
+    class Meta:
+        model = Attendance
+        exclude = ("user",)
+
+
 class LeaveForm(ModelForm):
+    start_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    end_date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+
     class Meta:
         model = Leave
-        fields = ("__all__")
+        exclude = ("total_leave_remaining", "created_at", "total_leave")
 
 
 class BonusForm(ModelForm):
     class Meta:
         model = Bonus
-        fields = ("__all__")
+        exclude = ("amount",)
 
 
 class JobProceedForm(ModelForm):

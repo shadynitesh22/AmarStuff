@@ -1,8 +1,11 @@
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.utils import timezone
+
 from quotation.models import Commodities, Quotation, WorkOFScope
 from users.models import Customer
-
+from datetime import datetime
 from django.db import models
-import datetime
 
 
 class Job(models.Model):
@@ -23,14 +26,34 @@ class Payroll(models.Model):
     STATUS = (
         ("Monthly Salary", "Monthly Salary"),
 
-
     )
 
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     user = models.ForeignKey(Customer, null=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.status} - To: {self.user.username}"
+        return f"{self.status} - To: {self.user}"
+
+
+class Attendance(models.Model):
+    user = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date = models.DateField(default=timezone.now)
+    present = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.user} - {self.date} - {'Present' if self.present else 'Absent'}"
+
+
+@receiver(post_save, sender=Customer)
+def create_attendance_record(sender, instance, created, **kwargs):
+    if created:
+        Attendance.objects.create(user=instance)
+
+
+class Salary(models.Model):
+    user = models.OneToOneField(Customer, null=False, on_delete=models.CASCADE)
+    salary_amount = models.IntegerField(null=False, blank=False)
+    release_date = models.PositiveSmallIntegerField(null=False, blank=False, )
 
     def release_payroll(self):
         salary = self.user.salary
@@ -59,8 +82,8 @@ class Payroll(models.Model):
         total_salary = salary_amount - deduction
         current_salary = total_salary
         leave_days = \
-        Leave.objects.filter(user=self.user, created_at__month=today.month, created_at__year=today.year).aggregate(
-            total_leave=models.Sum('total_leave'))['total_leave']
+            Leave.objects.filter(user=self.user, created_at__month=today.month, created_at__year=today.year).aggregate(
+                total_leave=models.Sum('total_leave'))['total_leave']
         if leave_days is None:
             leave_days = 0
 
@@ -77,35 +100,54 @@ class Payroll(models.Model):
         # Perform the necessary actions for releasing the payroll, e.g., generating payslip, sending notifications,
         # etc. ...
 
-
-class Salary(models.Model):
-    user = models.OneToOneField(Customer, null=False, on_delete=models.CASCADE)
-    salary_amount = models.IntegerField(null=False, blank=False)
-    release_date = models.PositiveSmallIntegerField(null=False, blank=False, default=1)
-
     def __str__(self):
-        return f"Salary - User: {self.user.username}"
+        return f"Salary - User: {self.user}"
 
 
 class Bonus(models.Model):
-
     salary = models.ForeignKey(Salary, null=True, on_delete=models.CASCADE)
-    bonus_percent = models.IntegerField(max_length=100,null=False,blank=False)
-    amount = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
+    bonus_percent = models.IntegerField(max_length=100, default=1)
+    amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
-    def save(self,*args,**kwargs):
-        toatl_amount = self.bonus_percent % self.salary.salary_amount *100
+    def save(self, *args, **kwargs):
+        toatl_amount = self.bonus_percent % self.salary.salary_amount * 100
         toatl_amount = self.amount
         super().save()
 
     def __str__(self):
-        return f"Bonus - User: {self.user.username}"
+        return f"Bonus - User: {self.salary.user}"
 
 
 class Leave(models.Model):
     user = models.ForeignKey(Customer, null=False, on_delete=models.CASCADE)
-    total_leave = models.IntegerField(null=False, blank=False, default=0)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    total_leave = models.IntegerField(null=True, blank=True, default=0)
     created_at = models.DateField(auto_now_add=True)
+    total_leave_remaining = models.IntegerField(default=14)
+
+    def save(self, *args, **kwargs):
+        """
+        Calculate the number of leave days
+        """
+
+        total_days = (self.end_date - self.start_date).days + 1
+        self.total_leave = total_days
+        total_days_remaing = self.total_leave_remaining - total_days
+        self.total_leave_remaining = total_days_remaing
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.user} - Leave for {self.total_leave}"
+
+    def CalculateTotalLeave(self):
+        """
+        Add leave days to total increment +
+        totatl days = 1
+        leavedays = 2
+        total = 3
+        """
+        pass
 
 
 class JobBegin(models.Model):
